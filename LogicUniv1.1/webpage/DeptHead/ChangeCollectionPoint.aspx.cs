@@ -46,14 +46,19 @@ namespace LogicUniv1._1.webpage.DeptHead
 
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            User u = (User)Session["UserEntity"];
-            
-            string collectionP = GridView1.SelectedRow.Cells[0].Text.Trim();
-            string deptid = u.DepartmentId;
-            mcpc.changeCollectionPoint(u, collectionP);
-            mcpc.mailNotificationCollectionPoint(u, collectionP, deptid);
-            Label2.Text = "Successfuly changed, Email has been sent to all relevant individual.";
-        }
+            try
+            {
+                User u = (User)Session["UserEntity"];
+                string collectionP = GridView1.SelectedRow.Cells[0].Text.Trim();
+                string deptid = u.DepartmentId;
+                mcpc.changeCollectionPoint(u, collectionP);
+                mcpc.mailNotificationCollectionPoint(u, collectionP, deptid);
+                Label2.Text = "Successfuly changed, Email has been sent to all relevant individual.";
+            }
+            catch(Exception ex){
+
+            }
+            }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

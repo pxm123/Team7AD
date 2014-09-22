@@ -37,16 +37,24 @@ namespace LogicUniv1._1.webpage.DeptHead
         }
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            User u = (User)Session["UserEntity"];
+            try
+            {
+                User u = (User)Session["UserEntity"];
+
+                string name = GridEmp.SelectedRow.Cells[0].Text.Trim();
+                string uid = GridEmp.SelectedRow.Cells[1].Text.Trim();
+                string startDate = checkInDatePicker.Text;
+                string endDate = checkOutDatePicker.Text;
+                merc.AssignNewRep(uid);
+                merc.mailNotification(startDate, endDate, u, name);
+                Label2.Text = "Successfuly Assigned, Email has been sent to all relevant individual.";
+            }
+            catch (Exception ex)
+            {
+
+            }
             
-            string name = GridEmp.SelectedRow.Cells[0].Text.Trim();
-            string uid = GridEmp.SelectedRow.Cells[1].Text.Trim();
-            string startDate = checkInDatePicker.Text;
-            string endDate = checkOutDatePicker.Text;
-            merc.AssignNewRep(uid);
-            merc.mailNotification(startDate, endDate, u, name);
-            Label2.Text = "Successfuly Assigned, Email has been sent to all relevant individual.";
-        }
+            }
 
         protected void GridEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

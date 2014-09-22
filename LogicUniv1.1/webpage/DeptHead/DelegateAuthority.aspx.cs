@@ -62,16 +62,23 @@ namespace LogicUniv1._1.webpage.DeptHead
 
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            User u = (User)Session["UserEntity"];
-            //Button1.Enabled = false;
-            string name = GridEmp.SelectedRow.Cells[0].Text.Trim();
-            string uid = GridEmp.SelectedRow.Cells[1].Text.Trim();
-            string startDate = checkInDatePicker.Text;
-            string endDate = checkOutDatePicker.Text;
-            dac.delegateAuthority(uid);
-            dac.mailNotification(startDate, endDate, u,name);
-            Label2.Text = "Successfuly delegated, Email has been sent to all relevant individual.";
-        }
+            try
+            {
+                User u = (User)Session["UserEntity"];
+                //Button1.Enabled = false;
+                string name = GridEmp.SelectedRow.Cells[0].Text.Trim();
+                string uid = GridEmp.SelectedRow.Cells[1].Text.Trim();
+                string startDate = checkInDatePicker.Text;
+                string endDate = checkOutDatePicker.Text;
+                dac.delegateAuthority(uid);
+                dac.mailNotification(startDate, endDate, u, name);
+                Label2.Text = "Successfuly delegated, Email has been sent to all relevant individual.";
+            }
+            catch(Exception ex){
+
+            }
+            
+            }
 
 
 
