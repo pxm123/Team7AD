@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -18,7 +18,7 @@
           </Key>
           <Property Name="collectionPointId" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="time" Type="nchar" MaxLength="10" />
-          <Property Name="address" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="department">
           <Key>
@@ -609,7 +609,7 @@ FROM [dbo].[message] AS [message]</DefiningQuery>
           </Key>
           <Property Name="collectionPointId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="time" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="departments" Relationship="Self.FK_department_collectionPoint" FromRole="collectionPoint" ToRole="department" />
         </EntityType>
         <EntityType Name="department">

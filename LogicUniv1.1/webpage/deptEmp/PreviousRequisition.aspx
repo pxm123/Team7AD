@@ -208,7 +208,7 @@
                         </Columns>
                         <EditRowStyle Height="35px" />
                         <EmptyDataTemplate>
-                           <asp:Button ID="Button1" runat="server" Text="Detail" />
+                            There is no current requisition.
                         </EmptyDataTemplate>
                         <HeaderStyle Height="35px" />
                    </asp:GridView>

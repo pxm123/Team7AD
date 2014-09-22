@@ -125,6 +125,7 @@ namespace LogicUniv1._1.webpage.deptEmp
             rnrc.addRequisitionController(u, sclist2);
             Label1.Text = "Requisition has been created successfuly.";
             Button1.Enabled = false;
+
             
         }
 
@@ -133,5 +134,7 @@ namespace LogicUniv1._1.webpage.deptEmp
             GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
         }
+
+
     }
 }

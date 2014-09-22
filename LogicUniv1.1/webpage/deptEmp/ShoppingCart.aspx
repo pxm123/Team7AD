@@ -199,7 +199,7 @@
                         <ContentTemplate>
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True" PageSize="6" Width="923px" CssClass="table table-striped table-bordered table-condensed" >
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True" PageSize="6" Width="923px" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" >
                                 <Columns>
                                     <asp:ImageField DataImageUrlField="Photourl" HeaderText="Image" ReadOnly="True">
                                         <ControlStyle Height="125px" Width="125px" />

@@ -73,7 +73,7 @@ namespace LogicUniv1._1.webpage.DeptHead
             RejectBtn.Enabled = false;
             ApproveBtn.Enabled = false;
             Labelflag.Text = "Successful Approved.";
-            
+            Response.Redirect("HeadHome.aspx");
         }
 
         protected void RejBtn_Click(object sender, EventArgs e)
@@ -85,6 +85,7 @@ namespace LogicUniv1._1.webpage.DeptHead
             Labelflag.Text = "Requisition Rejected.";
             RejectBtn.Enabled = false;
             ApproveBtn.Enabled = false;
+            Response.Redirect("HeadHome.aspx");
         }
     }
 }
