@@ -280,7 +280,7 @@
 				</table>
               </div>
                 <div>
-                    <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load" Width="980px">
+                    <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load" Width="815px">
                         <Series>
                             <asp:Series  Name="Series1" Label="#VAL" Legend="Legend1" LegendText="Month">
                             </asp:Series>

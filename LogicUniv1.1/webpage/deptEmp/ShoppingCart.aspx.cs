@@ -27,32 +27,37 @@ namespace LogicUniv1._1.webpage.deptEmp
            
             if (!IsPostBack)
             {
-                string idstr = Request.QueryString["idstr"];
-                string amountstr = Request.QueryString["amountstr"];
-                itemList = (List<item>)Session["itemList"];
-                idlistInt = rnrc.getIdlistInt(idstr);
-                amountlistInt = rnrc.getAmountlistInt(amountstr);
-
-                //if(amountlistInt.Count)
-
-
-                namelist = rnrc.getNamelist(itemList, idlistInt);
-                try{
-                sclist = rnrc.addShoppingItem(namelist, amountlistInt, idlistInt);
-                Session["sclist"] = sclist;
-                GridView1.DataSource = sclist;
-                GridView1.DataBind();
-                }
-                catch(Exception ex){
-
-                    Response.Redirect("EmpHome.aspx");
-                }
+                da();
 
             }
 
 
         }
+        void da()
+        {
+            string idstr = Request.QueryString["idstr"];
+            string amountstr = Request.QueryString["amountstr"];
+            itemList = (List<item>)Session["itemList"];
+            idlistInt = rnrc.getIdlistInt(idstr);
+            amountlistInt = rnrc.getAmountlistInt(amountstr);
 
+            //if(amountlistInt.Count)
+
+
+            namelist = rnrc.getNamelist(itemList, idlistInt);
+            try
+            {
+                sclist = rnrc.addShoppingItem(namelist, amountlistInt, idlistInt);
+                Session["sclist"] = sclist;
+                GridView1.DataSource = sclist;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                Response.Redirect("EmpHome.aspx");
+            }
+        }
 
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,11 +134,10 @@ namespace LogicUniv1._1.webpage.deptEmp
             
         }
 
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
-        }
+
+
+
+
 
 
     }

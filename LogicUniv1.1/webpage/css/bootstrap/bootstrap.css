@@ -222,6 +222,7 @@ a:focus {
 }
 img {
   vertical-align: middle;
+   height:23px;
   }
 .img-responsive {
   display: block;

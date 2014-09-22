@@ -193,13 +193,13 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
-			<div class="tm-right-inner-container" style="padding-left:80px">
+			<div class="tm-right-inner-container" id="prelayer" style="padding-left:80px">
                 <div> 
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True" PageSize="6" Width="923px" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" >
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating" PageSize="6" Width="923px" CssClass="table table-striped table-bordered table-condensed" >
                                 <Columns>
                                     <asp:ImageField DataImageUrlField="Photourl" HeaderText="Image" ReadOnly="True">
                                         <ControlStyle Height="125px" Width="125px" />
@@ -234,15 +234,16 @@
         </div>	
 		<!-- right section -->
     </form>
-        <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 
 </body>
     </html>

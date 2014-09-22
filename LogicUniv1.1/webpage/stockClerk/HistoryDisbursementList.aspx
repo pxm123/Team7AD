@@ -211,7 +211,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                   
-			<div class="tm-right-inner-container"> 
+			<div class="tm-right-inner-container" id="prelayer">
                 <div>
                     <asp:Button ID="btn_Current" CssClass="btn btn-default btn-sm" runat="server" Text="View List for Current Week" OnClick="btn_Current_Click" />
                     <asp:Button ID="btn_History"  CssClass="btn btn-default btn-sm" runat="server" Text="View History Log" Enabled="false"/>
@@ -265,15 +265,17 @@
         </div>	
 		<!-- right section -->
     </form>
-      <script>
-          $(function () {
-              console.log(window.innerHeight);
-              var height = (window.innerHeight);
-              console.log(height);
-              document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-              document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-          });
-</script>
+
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 
 </body>
 </html>

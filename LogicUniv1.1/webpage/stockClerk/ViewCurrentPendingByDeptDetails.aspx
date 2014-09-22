@@ -180,7 +180,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
-			<div class="tm-right-inner-container">
+			<div class="tm-right-inner-container" id="prelayer">
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
@@ -201,16 +201,16 @@
 			</div>
         </div>	
 		<!-- right section -->
-    </form>
-      <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 
 </body>
 </html>
