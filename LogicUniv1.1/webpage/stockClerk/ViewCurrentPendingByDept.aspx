@@ -105,7 +105,7 @@
                                 </div>
                                 <span class="time"><i class="icon-time"></i> 13分钟前.</span>
                             </a>
-                            <a href="#" class="item">
+                            <a href="#" class="item"> 
                                 <img src="../img/contact-img2.png" class="display" />
                                 <div class="name">Galván</div>
                                 <div class="msg">
@@ -231,12 +231,14 @@
      <script>
          $(function () {
              console.log(window.innerHeight);
-             var height = $("#prelayer").height() + 500;
+             var height = $("#prelayer").height() + 1200;
              console.log(height);
+             console.log($("#prelayer").height());
              document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
              document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
          });
     </script>
+
 
 
 </body>

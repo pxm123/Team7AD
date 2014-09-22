@@ -201,6 +201,7 @@
 			</div>
         </div>	
 		<!-- right section -->
+    </form>
      <script>
          $(function () {
              console.log(window.innerHeight);

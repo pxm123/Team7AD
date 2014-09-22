@@ -182,7 +182,7 @@
 <div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
-            <div class="tm-right-inner-container">
+            <div class="tm-right-inner-container" id="prelayer">
             <br />
            
 
@@ -207,7 +207,7 @@
                      <EditRowStyle Height="35px" />
                      <HeaderStyle Height="35px" />
             </asp:GridView>
-                <div class="tm-right-inner-container">
+                
             
                <asp:Button ID="Addsupplier" runat="server" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" Text="Add Supplier" Width="122px" CssClass="btn btn-info" Height="35px" style="margin-left:auto"/>
               
@@ -287,11 +287,6 @@
                  </div>
 
 
-
-
-
-
-
 			</div>
         </div>	
         <footer>
@@ -306,15 +301,16 @@
 				</footer>
 		<!-- right section -->
     </form>
-        <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 
 </body>
     </html>
