@@ -19,7 +19,7 @@ namespace LogicUniv1._1.webpage.stockClerk
         DataTable Data = new DataTable();
         LogicUnivSystemEntities lg = new LogicUnivSystemEntities();
         ProcessDiscrepancyController pdController = new ProcessDiscrepancyController();
-        User u;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -170,6 +170,7 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void Confirm_Click(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
             if (Data.Rows.Count != 0)
             {
                 try

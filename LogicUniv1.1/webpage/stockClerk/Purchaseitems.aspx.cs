@@ -8,7 +8,12 @@ using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockClerk;
 using ClassLibraryBL.Entities;
 using ClassLibraryBL.EntityFacade;
-
+using System.IO;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
 
 namespace LogicUniv1._1.webpage.stockClerk
 {
@@ -89,11 +94,66 @@ namespace LogicUniv1._1.webpage.stockClerk
          protected void Button1_Click(object sender, EventArgs e)
          {
 
-         }  
+         }
 
-       
-     
+         protected void Send_Click(object sender, System.EventArgs e)
+         {
+             User u = (User)Session["UserEntity"];
+            if (u.RoleId != 4){
+                Response.Redirect("../Security.aspx");
+            }
+            string[] st = pl.sendemail(u, Convert.ToInt32(Label7.Text));
+        
+            string messageBody = "<font>The following are the records: </font><br><br>";
+            string from = "lujianfeng1990@hotmail.com";
+            string to = "lujianfeng1990@hotmail.com";                
+            string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
+            string htmlTableEnd = "</table>";
+            string htmlHeaderRowStart = "<tr style =\"background-color:#6FA1D2; color:#ffffff;\">";
+            string htmlHeaderRowEnd = "</tr>";
+            string htmlTrStart = "<tr style =\"color:#555555;\">";
+            string htmlTrEnd = "</tr>";
+            string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+            string htmlTdEnd = "</td>";
 
-     
-    }
+            messageBody+= htmlTableStart;
+            messageBody += htmlHeaderRowStart;
+            messageBody += htmlTdStart + "ItmeCode " + htmlTdEnd;
+            messageBody += htmlTdStart + "Description " + htmlTdEnd;
+            messageBody += htmlTdStart + "Quantity " + htmlTdEnd;
+            messageBody += htmlTdStart + "Price " + htmlTdEnd;
+            messageBody += htmlTdStart + "Amount " + htmlTdEnd;
+            messageBody += htmlHeaderRowEnd;
+
+            foreach (GridViewRow r in GridView1.Rows)
+           {
+                messageBody = messageBody + htmlTrStart;
+                messageBody = messageBody + htmlTdStart + r.Cells[0].Text + htmlTdEnd;
+                messageBody = messageBody + htmlTdStart + r.Cells[1].Text + htmlTdEnd;
+                messageBody = messageBody + htmlTdStart + r.Cells[2].Text + htmlTdEnd;
+                messageBody = messageBody + htmlTdStart + r.Cells[3].Text + htmlTdEnd;
+                messageBody = messageBody + htmlTdStart + r.Cells[4].Text + htmlTdEnd;
+                messageBody = messageBody + htmlTrEnd;
+            }
+            messageBody = messageBody + htmlTableEnd;
+
+            MailMessage messge = new MailMessage(from, to);
+                 
+            messge.Body = messageBody;
+            messge.Subject = "Notification: Purchase Order from Logic University Stationery Inventory " ; //change and use session
+            messge.IsBodyHtml = true;
+            messge.Priority = MailPriority.High;
+
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp.live.com";
+            client.Credentials = new NetworkCredential("lujianfeng1990@hotmail.com", "ibm1990324");
+            client.EnableSsl = true;
+            client.Send(messge);
+            messge.Attachments.Dispose();
+
+
+            }
+                
+        }  
+
 }

@@ -382,5 +382,36 @@ namespace ClassLibraryBL.EntityFacade
             return n.ToList();
 
         }
+
+
+
+//////////////web addition
+
+                public string[] sendemail(User u,int supplierid)
+                {
+                    var n = from a in ctx.users
+                            where a.userId == u.UserId
+                            select a.email;
+                    string from = n.SingleOrDefault();
+                    var x = from b in ctx.suppliers
+                            where b.supplierId == supplierid
+                            select b.mailaddress;
+                    string to=x.SingleOrDefault();
+                    string [] contain = new string [2];
+                    contain[0] = from;
+                    contain[1] = to;
+                    if (contain[1] == null)
+                    {
+                        contain[1] = "empty@hotmail.com";
+                    }
+                    else if (contain[0] == null)
+                    {
+                        contain[0] = "empty@hotmail.com";
+                    }
+
+                    return contain;
+                }
+
+
     }
 }

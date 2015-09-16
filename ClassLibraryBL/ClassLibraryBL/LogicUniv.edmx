@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryId" />
           </Key>
           <Property Name="categoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="categoryName" Type="nchar" MaxLength="50" />
+          <Property Name="categoryName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="collectionPoint">
           <Key>
@@ -610,7 +610,7 @@
             <PropertyRef Name="categoryId" />
           </Key>
           <Property Name="categoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="items" Relationship="Self.FK_item_category" FromRole="category" ToRole="item" />
         </EntityType>
         <EntityType Name="collectionPoint">

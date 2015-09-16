@@ -221,7 +221,7 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="Send" runat="server" style="margin-left: 509px" Text="Send Email to Supplier" Width="178px" CssClass="btn btn-info" />
+            <asp:Button ID="Send" runat="server" style="margin-left: 509px" Text="Send Email to Supplier" Width="178px" CssClass="btn btn-info" OnClick="Send_Click" />
             <asp:Button ID="Add" runat="server" Height="35px" style="margin-left: 15px" Text="Add Item" Width="135px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" CssClass="btn btn-info" />
         </p>
            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" Width="96px" CssClass="btn btn-info" />  

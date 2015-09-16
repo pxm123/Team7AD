@@ -66,6 +66,11 @@ namespace ClassLibraryBL.Controller.stockClerk
         {
             return f.getPurchaseOrder();
         }
+
+        public string[] sendemail(User u, int supplierid)
+        {
+            return f.sendemail(u, supplierid);
+        }
     }
     
 }
