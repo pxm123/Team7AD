@@ -22,6 +22,13 @@ namespace LogicUniv1._1.webpage.stockClerk
         User u;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             if (!IsPostBack)
             {
                 Object o = pdController.getCategory();
@@ -152,7 +159,6 @@ namespace LogicUniv1._1.webpage.stockClerk
         protected void dropdownlist_category_SelectedIndexChanged(object sender, EventArgs e)
         {
             String transfer = dropdownlist_category.SelectedValue;
-
             Object o = pdController.getCategoryItem(transfer);
             dropdownlist_item.DataSource = o;
             dropdownlist_item.DataBind();
@@ -173,12 +179,12 @@ namespace LogicUniv1._1.webpage.stockClerk
                 }
                 catch
                 {
-                    //lbl_fail.Text = "Transaction Failure,please check your form format";
+                    lbl_fail.Text = "Transaction Failure,please check your form format";
                 }
             }
             if (Data.Rows.Count == 0)
             {
-                //lbl_fail.Text = "Transaction Failure,please check your form format";
+                lbl_fail.Text = "Transaction Failure,please check your form format";
             }
         }
 

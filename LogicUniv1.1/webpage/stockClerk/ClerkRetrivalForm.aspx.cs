@@ -17,11 +17,13 @@ namespace LogicUniv1._1.webpage.stockClerk
         ViewRetrievalFormController view = new ViewRetrievalFormController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             User u = (User)Session["UserEntity"];
-            if (u.RoleId != 4)
+            if (u == null || u.RoleId != 4)
             {
                 Response.Redirect("../Security.aspx");
             }
+
             if (!IsPostBack)
             {
 
@@ -133,6 +135,11 @@ namespace LogicUniv1._1.webpage.stockClerk
             String ts = Department.SelectedValue;
             GridView1.DataSource = view.checkcurrentweekbydepartment(ts);
             GridView1.DataBind();
+
+        }
+
+        protected void p_Click(object sender, EventArgs e)
+        {
 
         }
     }

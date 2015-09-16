@@ -16,7 +16,11 @@ namespace LogicUniv1._1.webpage.stockSupervisor
         LogicUnivSystemEntities ctx = new LogicUnivSystemEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            User userbean = (User)Session["UserEntity"];
+            User u = (User)Session["UserEntity"];
+            if (u.RoleId != 5)
+            {
+                Response.Redirect("../Security.aspx");
+            }
           
             var N = from a in ctx.discrepancies
                     join b in ctx.users on a.userId equals b.userId

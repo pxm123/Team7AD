@@ -189,7 +189,7 @@
                                 <tr>
                                     <td class="auto-style1">
                                         <div class="text-justify">
-                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" Width="818px" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanging="GridView1_SelectedIndexChanging1">
+                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-condensed" Width="818px" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanging="GridView1_SelectedIndexChanging1">
                                                 <Columns>
                                                     <asp:BoundField DataField="RequisitionId" HeaderText="RequisitionId" />
                                                     <asp:BoundField DataField="userId" HeaderText="Requested By" />

@@ -16,7 +16,12 @@ namespace LogicUniv1._1.webpage.DeptHead
         User u = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            u = (User)Session["UserEntity"];
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 1)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             getAllEmployee(u);
         }
         public void getAllEmployee(User u)

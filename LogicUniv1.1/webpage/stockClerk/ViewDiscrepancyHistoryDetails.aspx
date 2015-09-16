@@ -170,7 +170,7 @@
                   <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
 				  <li><a href="ClerkReportDiscrepancy.aspx"  class="active"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
 				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
-                  <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
+                
 				</ul>
 			</div>
 

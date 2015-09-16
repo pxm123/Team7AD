@@ -131,12 +131,10 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-                      <li><a href="SSHome.aspx" >Home</a></li>
+                  <li><a href="SSHome.aspx" >Home</a></li>
 				  <li><a href="CompareThreeMonths.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"class="active"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx" ><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
-                                      <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
-
 				</ul>
 			</div>
 
@@ -145,7 +143,7 @@
 <div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
-            
+             <div class="tm-right-inner-container" id="prelayer">
            <div>
                <table>
                    <tr>
@@ -285,7 +283,7 @@
            <div>
     <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" CssClass="table table-striped table-bordered table-condensed" ></asp:GridView>
                </div>
-
+                 </div>
 				<footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
@@ -300,15 +298,15 @@
         </div>	
 		<!-- right section -->
     </form>
-        <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
 
 </body>
     </html>

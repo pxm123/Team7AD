@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockClerk;
 
+using ClassLibraryBL.Entities;
+
 namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class CheckCurrentDisbursementList : System.Web.UI.Page
@@ -13,6 +15,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         ViewDisbursementListController vs = new ViewDisbursementListController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
 
         }
         //deptValue is the name of the dept

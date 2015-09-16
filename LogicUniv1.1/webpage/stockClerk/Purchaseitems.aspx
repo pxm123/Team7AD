@@ -172,7 +172,7 @@
                   <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
 				  <li><a href="ClerkReportDiscrepancy.aspx"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
 				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
-                  <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
+                  
 				</ul>
 			</div>
 
@@ -225,7 +225,7 @@
             <asp:Button ID="Add" runat="server" Height="35px" style="margin-left: 15px" Text="Add Item" Width="135px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" CssClass="btn btn-info" />
         </p>
            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" Width="96px" CssClass="btn btn-info" />  
-           <asp:Button ID="Button1" runat="server" Text="Print" OnClientClick="PrintGridView()" Width="98px" CssClass="btn btn-info" />  
+           <asp:Button ID="Button1" runat="server" Text="Print" OnClientClick="PrintGridView()" Width="98px" CssClass="btn btn-info" OnClick="Button1_Click" />  
 
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">

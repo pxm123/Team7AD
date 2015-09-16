@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.DeptHead;
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1.webpage.DeptHead
 {
     public partial class RequisitionDetails : System.Web.UI.Page
@@ -13,6 +14,15 @@ namespace LogicUniv1._1.webpage.DeptHead
         ViewPastRequistionController vprc = new ViewPastRequistionController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 1)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
+
+
+
             if (Request.Params["rid"] != null && Request.Params["idet"] != null)
             {
                 retrievePreReqDetailsForHead(Request.Params["rid"]);

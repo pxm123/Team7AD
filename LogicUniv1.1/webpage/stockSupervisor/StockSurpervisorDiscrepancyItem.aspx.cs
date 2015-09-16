@@ -14,9 +14,12 @@ namespace LogicUniv1._1.webpage.stockSupervisor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            User userbean = (User)Session["UserEntity"];
-
-            int s = Convert.ToInt32(userbean.ToString());
+            User u = (User)Session["UserEntity"];
+            if (u.RoleId != 5)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+            int s = Convert.ToInt32(Session["id"].ToString());
             var N = from a in ctx.discrepancy_item
                     join b in ctx.items on a.itemId equals b.itemId
                     join c in ctx.categories on b.categoryId equals c.categoryId

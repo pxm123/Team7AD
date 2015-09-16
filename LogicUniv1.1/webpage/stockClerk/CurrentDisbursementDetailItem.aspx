@@ -43,11 +43,17 @@
             text-align: left;
         }
         .auto-style2 {
-            width: 299px
+            width: 228px
         }
         .auto-style3 {
-            width: 299px;
+            width: 228px;
             font-size: large;
+        }
+        .auto-style4 {
+            width: 165px;
+        }
+        .auto-style5 {
+            width: 203px
         }
     </style>
 </head>
@@ -183,7 +189,7 @@
                   <li><a href="CheckCurrentDisbursementList.aspx"  class="active"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
 				  <li><a href="ClerkReportDiscrepancy.aspx"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
 				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
-                  <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
+                  
 				</ul>
 			</div>
 
@@ -199,14 +205,21 @@
                     <table class="table-products">
                         <tr>
                             <td class="auto-style3">Disbursement List Details:</td>
-                            <td>&nbsp;</td>
+                            <td class="auto-style4">
+                                &nbsp;</td>
+                            <td class="auto-style5">
+                                <asp:Button ID="Button1" runat="server" OnClientClick="PrintGridView()" Width="127px" CssClass="btn btn-info" Text="Print" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style2">
                     <asp:Label ID="lbl_collectionPoint" runat="server" Text=""></asp:Label>  
                             </td>
-                            <td>
+                            <td class="auto-style4">
                     <asp:Label ID="lbl_time" runat="server" Text=""></asp:Label>
+                            </td>
+                            <td class="auto-style5">
+                                <asp:Label ID="Label1" runat="server"></asp:Label>
                             </td>
                         </tr>
                     </table>
@@ -215,7 +228,7 @@
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView1"  CssClass="table table-striped table-bordered table-condensed" width="900px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+                            <asp:GridView ID="GridView1"  CssClass="table table-striped table-bordered table-condensed" width="681px" RowStyle-Height="35px"  HeaderStyle-Height="35px" Font-Size="Small" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
                                 <HeaderStyle />
                                 <RowStyle Height="35px" />
                            </asp:GridView>  
@@ -247,6 +260,23 @@
                 document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
             });
 </script>
+     <script>
+         function PrintGridView() {
+             // 打开一个新网页
+             var newwindow = window.open('');
 
+             // 将指定DIV中的内容写入该网页
+             newwindow.document.write(document.getElementById('rightlayer').innerHTML);
+             newwindow.document.close();
+
+             // 打印该网页
+             newwindow.focus();
+             newwindow.print();
+
+             // 打印完毕后关闭该窗口
+             newwindow.close();
+             return;
+         }
+</script>
 </body>
     </html>

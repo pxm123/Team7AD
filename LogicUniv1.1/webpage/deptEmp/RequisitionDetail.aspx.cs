@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1.webpage.deptEmp
 {
     public partial class RequisitionDetail : System.Web.UI.Page
@@ -15,6 +15,12 @@ namespace LogicUniv1._1.webpage.deptEmp
         ViewCurrentRequisitionController vcrc = new ViewCurrentRequisitionController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u == null)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             int rid = Convert.ToInt32(Request.QueryString["rid"]);
             Label4.Text = rid.ToString();
             string cpoint = "";

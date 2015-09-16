@@ -18,7 +18,12 @@ namespace LogicUniv1._1.webpage.deptEmpRep
         User u = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            u = (User)Session["UserEntity"];
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 3)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             int p = int.Parse(Request.Params["did"]);
             getdisbusementDetails(u,p);
         }

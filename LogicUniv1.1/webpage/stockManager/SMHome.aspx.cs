@@ -17,11 +17,13 @@ namespace LogicUniv1._1.webpage.stockManager
         ApproveStockAdjustmentController Manager = new ApproveStockAdjustmentController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            user u = (user)Session["User"];
-            if (u.roleId != 6)
+
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 6)
             {
                 Response.Redirect("../Security.aspx");
             }
+
                 //User userbean = (User)Session["UserEntity"];
                 //storeM.Text = "Hello," + userbean.Name;
                 //var N = from a in ctx.discrepancies

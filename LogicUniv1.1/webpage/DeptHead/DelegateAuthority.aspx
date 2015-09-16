@@ -243,7 +243,7 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <div class="auto-style4">
-                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged">
+                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-condensed" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField DataField="name" HeaderText="Employee Name" />
                                         <asp:BoundField DataField="userId" HeaderText="Employee Id" />
@@ -253,6 +253,7 @@
                                     </Columns>
                                     <EditRowStyle Height="35px" />
                                     <HeaderStyle Height="35px" />
+                                    <SelectedRowStyle BackColor="#99FFCC" />
                                 </asp:GridView>
                             </div>
                             <table class="table-products">

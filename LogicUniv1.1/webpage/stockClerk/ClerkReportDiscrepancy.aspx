@@ -176,7 +176,7 @@
                   <li><a href="CheckCurrentDisbursementList.aspx"><i class="fa fa-comments-o fa-medium"></i>Disbursement</a></li>
 				  <li><a href="ClerkReportDiscrepancy.aspx"  class="active"><i class="fa  fa-exclamation-triangle fa-medium"></i>Discrepancy</a></li>
 				  <li><a href="ClerkMainSupplierPengxiaomeng.aspx"><i class="fa fa-reply-all fa-medium"></i>Manage Supplier</a></li>
-                  <li><a href="x.html"><i class="fa fa-print  fa-medium"></i>Print Current Page</a></li>
+                  
 				</ul>
 
 		</div> <!-- left section -->
@@ -187,7 +187,7 @@
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
-			<div class="tm-right-inner-container">
+			<div class="tm-right-inner-container" id="prelayer">
                 <div>
                     <asp:Button ID="btn_Current" CssClass="btn btn-default btn-sm" runat="server" Text="Report Discrepancy"  Enabled="false"/>
                     <asp:Button ID="btn_History"  CssClass="btn btn-default btn-sm" runat="server" Text="View Discrepancy History" OnClick="btn_History_Click" />
@@ -311,7 +311,9 @@
   <!-- Modal End-->
 </div>
 
-				<footer>
+				
+			</div>
+            <footer>
 					<p class="col-lg-3 col-md-3  templatemo-copyright">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
 					<p class="col-lg-9 col-md-9  templatemo-social">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
@@ -321,19 +323,19 @@
 						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
 					</p>
 				</footer>
-			</div>
         </div>	
 		<!-- right section -->
     </form>
-      <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 800;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 
 </body>
 </html>

@@ -17,17 +17,11 @@ namespace LogicUniv1._1.webpage.deptEmp
         ViewCurrentRequisitionController vcrc = new ViewCurrentRequisitionController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            u = (User)Session["UserEntity"];
-            //var N = from a in lu.requisitions
-            //        where a.userId == u.UserId && a.status.Trim() == "Pending"
-            //        select new
-            //        {
-
-            //            RequisitionDate = a.requestDate,
-            //            Status = a.status,
-            //            Rid = a.requisitionId
-
-            //        };
+            User u = (User)Session["UserEntity"];
+            if (u == null)
+            {
+                Response.Redirect("../Security.aspx");
+            }
             GridView1.DataSource = vcrc.PendingPastRequisition(u);
             GridView1.DataBind();
 

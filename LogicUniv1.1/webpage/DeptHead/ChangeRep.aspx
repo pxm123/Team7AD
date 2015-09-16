@@ -227,7 +227,7 @@
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
                             <div class="auto-style1">
-                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged" AllowPaging="True">
+                                <asp:GridView ID="GridEmp" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-condensed" OnPageIndexChanging="GridEmp_PageIndexChanging" OnSelectedIndexChanged="GridEmp_SelectedIndexChanged" AllowPaging="True">
                                     <Columns>
                                         <asp:BoundField DataField="name" HeaderText="Employee Name" />
                                         <asp:BoundField DataField="userId" HeaderText="Employee Id" />
@@ -237,6 +237,7 @@
                                     </Columns>
                                     <EditRowStyle Height="35px" />
                                     <HeaderStyle Height="35px" />
+                                    <SelectedRowStyle BackColor="#99FFCC" />
                                 </asp:GridView>
                             </div>
                         </ContentTemplate>

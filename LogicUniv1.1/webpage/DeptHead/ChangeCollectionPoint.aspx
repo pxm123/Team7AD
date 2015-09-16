@@ -202,7 +202,7 @@
                        <ContentTemplate>
                            <asp:ScriptManager ID="ScriptManager1" runat="server">
                            </asp:ScriptManager>
-                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                <Columns>
                                    <asp:BoundField DataField="address" HeaderText="Collect Point" />
                                    <asp:BoundField DataField="time" HeaderText="Collect Time" />
@@ -212,6 +212,7 @@
                                </Columns>
                                <EditRowStyle Height="35px" />
                                <HeaderStyle Height="35px" />
+                               <SelectedRowStyle BackColor="#99FFCC" />
                            </asp:GridView>
                        </ContentTemplate>
                    </asp:UpdatePanel>

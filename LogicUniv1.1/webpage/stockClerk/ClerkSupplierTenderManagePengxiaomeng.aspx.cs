@@ -18,11 +18,13 @@ namespace LogicUniv1._1.webpage.stockClerk
        
         protected void Page_Load(object sender, EventArgs e)
         {
+
             User u = (User)Session["UserEntity"];
-            if (u.RoleId != 4)
+            if (u == null || u.RoleId != 4)
             {
                 Response.Redirect("../Security.aspx");
             }
+
             supplier s = new supplier();
             s = (supplier)Session["supplier"];
             Label2.Text = s.supplierId.ToString();

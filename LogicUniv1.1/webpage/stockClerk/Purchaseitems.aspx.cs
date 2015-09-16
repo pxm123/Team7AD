@@ -19,9 +19,11 @@ namespace LogicUniv1._1.webpage.stockClerk
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
-            if (u.RoleId != 4){
+            if (u == null || u.RoleId != 4)
+            {
                 Response.Redirect("../Security.aspx");
             }
+
             purchase s=(purchase) Session["purchaseitem"];
             List<Purchaseitem111> l = pl.showpurchaseitems(s);
             GridView1.DataSource = l;
@@ -82,7 +84,12 @@ namespace LogicUniv1._1.webpage.stockClerk
          protected void Button2_Click(object sender, EventArgs e)  
         {  
          Response.Redirect("Reorder.aspx");  
-        }  
+        }
+
+         protected void Button1_Click(object sender, EventArgs e)
+         {
+
+         }  
 
        
      

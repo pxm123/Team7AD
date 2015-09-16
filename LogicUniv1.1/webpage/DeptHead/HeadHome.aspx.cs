@@ -19,7 +19,12 @@ namespace LogicUniv1._1.webpage.DeptHead
             //User userbean = (User)Session["UserEntity"];
             //head.Text = "Hello," + userbean.Name;
 
-            u = (User)Session["UserEntity"];
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 1)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             if (vrc.getPendingRequisition(u).Count() == 0)
             {
                 flag.Text = "There is no Current Requsition at this moment.";

@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockClerk;
 
+using ClassLibraryBL.Entities;
+
 namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class CurrentDisbursementDetailItem : System.Web.UI.Page
@@ -13,6 +15,15 @@ namespace LogicUniv1._1.webpage.stockClerk
         ViewDisbursementListController vc = new ViewDisbursementListController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
+
+
             int p = Convert.ToInt32(Session["passing"]);
             Object o = vc.getDetailedItem(p);
             GridView1.DataSource = o;
@@ -20,8 +31,9 @@ namespace LogicUniv1._1.webpage.stockClerk
 
             String deptvalue = Session["deptValue"].ToString();
             Object collectionPoint= vc.getCollectionPoint(deptvalue);
-            lbl_collectionPoint.Text = "Collection Point:"+collectionPoint.ToString();
-            lbl_time.Text = "Collection Time" + disPlayTime();
+            lbl_collectionPoint.Text = "Collection Point: "+collectionPoint.ToString();
+            lbl_time.Text = "Collection Date: " + disPlayTime();
+            Label1.Text = "Department: " + deptvalue;
         }
         // We assure that the Collection Time will be the next Monday
         protected String disPlayTime()

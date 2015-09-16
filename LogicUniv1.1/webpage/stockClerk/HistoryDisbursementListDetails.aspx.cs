@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockClerk;
-
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class HistoryDisbursementListDetails : System.Web.UI.Page
@@ -13,6 +13,13 @@ namespace LogicUniv1._1.webpage.stockClerk
         ViewDisbursementListController cdlController = new ViewDisbursementListController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             String s= Session["passing"].ToString();
             Label1.Text ="DisbursementId:"+ s;
             Object o = cdlController.getHistoryListDetails(s);

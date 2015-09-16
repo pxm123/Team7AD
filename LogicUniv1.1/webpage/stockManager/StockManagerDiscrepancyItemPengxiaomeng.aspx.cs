@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockManager;
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1
 {
     public partial class WebForm2 : System.Web.UI.Page
@@ -14,11 +15,13 @@ namespace LogicUniv1._1
         ApproveStockAdjustmentController manager = new ApproveStockAdjustmentController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            user u = (user)Session["User"];
-            if (u.roleId != 4)
+
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 6)
             {
                 Response.Redirect("../Security.aspx");
             }
+
             int s = Convert.ToInt32(Session["id"].ToString());
             manager.checkdiscrepancyitem(s);
             GridView1.DataSource = manager.checkdiscrepancyitem(s);

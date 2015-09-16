@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1.webpage.deptEmp
 {
     public partial class EmpHome : System.Web.UI.Page
@@ -16,6 +16,12 @@ namespace LogicUniv1._1.webpage.deptEmp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u == null)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             if (!IsPostBack)
             {
                 var N = from a in lu.items

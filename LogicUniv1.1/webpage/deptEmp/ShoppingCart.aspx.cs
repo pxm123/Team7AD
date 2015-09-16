@@ -117,8 +117,8 @@ namespace LogicUniv1._1.webpage.deptEmp
             u = (User)Session["UserEntity"];
             sclist2 = (List<ShoppingItem>)Session["sclist"];
             rnrc.addRequisitionController(u, sclist2);
-            Label1.Text = "add success";
-           
+            Label1.Text = "Requisition has been created successfuly.";
+            Button1.Enabled = false;
             
         }
 

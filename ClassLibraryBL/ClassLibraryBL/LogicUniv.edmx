@@ -169,6 +169,7 @@
           <Property Name="faxNo" Type="nchar" MaxLength="50" />
           <Property Name="address" Type="nchar" MaxLength="50" />
           <Property Name="GST_RegistrationNo" Type="nchar" MaxLength="10" />
+          <Property Name="mailaddress" Type="nchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -793,6 +794,7 @@
           <NavigationProperty Name="item_supplier" Relationship="Self.FK_item_supplier_supplier" FromRole="supplier" ToRole="item_supplier" />
           <NavigationProperty Name="purchases" Relationship="Self.FK_purchase_supplier" FromRole="supplier" ToRole="purchase" />
           <NavigationProperty Name="purchase_item" Relationship="LogicUnivSystemModel.FK_purchase_item_supplier" FromRole="supplier" ToRole="purchase_item" />
+          <Property Name="mailaddress" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1407,6 +1409,7 @@
           <EntitySetMapping Name="suppliers">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.supplier">
               <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="mailaddress" ColumnName="mailaddress" />
                 <ScalarProperty Name="supplierId" ColumnName="supplierId" />
                 <ScalarProperty Name="compName" ColumnName="compName" />
                 <ScalarProperty Name="contactName" ColumnName="contactName" />

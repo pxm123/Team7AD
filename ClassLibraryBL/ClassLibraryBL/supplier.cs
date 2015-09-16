@@ -41,6 +41,8 @@ namespace ClassLibraryBL
         public string address { get; set; }
     	[DataMember]
         public string GST_RegistrationNo { get; set; }
+    	[DataMember]
+        public string mailaddress { get; set; }
     
     	[DataMember]
         public virtual ICollection<item_supplier> item_supplier { get; set; }

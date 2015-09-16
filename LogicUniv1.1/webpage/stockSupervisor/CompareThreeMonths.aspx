@@ -191,8 +191,6 @@
 				  <li><a href="CompareThreeMonths.aspx" class="active"><i class="fa fa-shopping-cart fa-medium"></i>Department Request bar</a></li>
 				  <li><a href="TrendForSupplier.aspx"><i class="fa fa-send-o fa-medium"></i>Trend for supplier</a></li>
 				  <li><a href="ReportOrder.aspx"><i class="fa fa-comments-o fa-medium"></i>Reorder Chart</a></li>
-                  <li><a href="StockSurpervisorDiscrepancyItem.aspx"><i class="fa fa-comments-o fa-medium"></i>DiscrepancyItem</a></li>
-
 				</ul>
 			</div>
 
@@ -203,7 +201,7 @@
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             
            
-			<div class="tm-right-inner-container">
+        <div class="tm-right-inner-container" id="prelayer">
                 <div> 
                 
 				<table><tr><td class="auto-style3">
@@ -316,15 +314,16 @@
         </div>	
 		<!-- right section -->
     </form>
-        <script>
-    $(function () {
-        console.log(window.innerHeight);
-        var height = (window.innerHeight);
-                console.log(height);
-                document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-                document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-            });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
 
 </body>
     </html>

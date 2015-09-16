@@ -266,7 +266,7 @@
 			<div id="prelayer" style="padding-left:60px">
                 <div> 
                     <div>
-                        <asp:TextBox ID="TextBox1" runat="server" Height="16px" Width="119px"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" placeholder="Search  by  product  name" runat="server" Height="27px" Width="241px"></asp:TextBox>
                         <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" CssClass="btn btn-info" />
                         <asp:DropDownList ID="DropDownList1" runat="server" Height="27px" Width="136px">
                             <asp:ListItem>catogoryName</asp:ListItem>

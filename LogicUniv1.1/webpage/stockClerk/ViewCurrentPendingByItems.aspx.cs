@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using ClassLibraryBL.Controller.stockClerk;
 using ClassLibraryBL.Entities;
 using ClassLibraryBL;
-
+using ClassLibraryBL.Entities;
 namespace LogicUniv1._1.webpage.stockClerk
 {
     public partial class ViewCurrentPendingByItems : System.Web.UI.Page
@@ -16,6 +16,12 @@ namespace LogicUniv1._1.webpage.stockClerk
         PlaceOrderController pl = new PlaceOrderController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
+            if (u == null || u.RoleId != 4)
+            {
+                Response.Redirect("../Security.aspx");
+            }
+
             Object o= vpController.getAllPendingItem();
             GridView1.DataSource = o;
             GridView1.DataBind();

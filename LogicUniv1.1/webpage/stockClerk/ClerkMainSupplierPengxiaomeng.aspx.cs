@@ -15,11 +15,13 @@ namespace LogicUniv1._1.webpage.stockClerk
         MaintainSupplierController con = new MaintainSupplierController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             User u = (User)Session["UserEntity"];
-            if (u.RoleId != 4)
+            if (u == null || u.RoleId != 4)
             {
                 Response.Redirect("../Security.aspx");
             }
+
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

@@ -18,19 +18,12 @@ namespace LogicUniv1._1.webpage.deptEmp
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            u = (User)Session["UserEntity"];
+            User u = (User)Session["UserEntity"];
+            if (u == null)
+            {
+                Response.Redirect("../Security.aspx");
+            }
 
-            //var N = from a in lu.requisitions
-            //        where a.userId == u.UserId
-            //        select new
-            //        {
-            //            Rid = a.requisitionId,
-            //            RequisitionDate = a.requestDate,
-            //            Status = a.status
-                       
-                        
-
-            //        };
 
             GridView1.DataSource = vprc.AllPastRequisition(u);
             GridView1.DataBind();
