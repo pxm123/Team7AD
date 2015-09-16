@@ -39,6 +39,21 @@
     <script src="../js/jquery.flot.stack.js"></script>
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
+    <script>
+        $(function () {
+            var roleId = "<%= Session["userRole"]%>";
+
+            if (roleId == 1) {
+                document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
+            }
+            if (roleId == 3) {
+                document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
+            }
+            else {
+                $("#1").remove();
+            }
+        });
+    </script>
     <style type="text/css">
         .auto-style1 {
             width: 212px;
@@ -189,7 +204,7 @@
 				  <li><a href="EmpHome.aspx" ><i class="fa fa-home fa-medium"></i>Homepage</a></li>
 				  <li><a href="PreviousRequisition.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
-				 
+				 <li><a id="1"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
 				</ul>
 			</div>
 
