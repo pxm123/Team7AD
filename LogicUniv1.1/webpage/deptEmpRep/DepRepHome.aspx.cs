@@ -13,8 +13,8 @@ namespace LogicUniv1._1.webpage.deptEmpRep
     public partial class DepEmpHome : System.Web.UI.Page
     {
         ConfirmDisbursementListController cdlc = new ConfirmDisbursementListController();
-
-        User u = new User();
+        
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
@@ -30,13 +30,24 @@ namespace LogicUniv1._1.webpage.deptEmpRep
             }
             else
             {
+
+
+                List<string> otherinf = cdlc.getrestinfo(u);
+
                 Label1.Text = "Current Week Disbursement List";
-                contacName.Text = "Contact Person: " + cdlc.getDisbursementList(u).First().ContacName;
-                address.Text ="Collection Point: " + cdlc.getDisbursementList(u).First().Address;
-                time.Text ="Collection Time: " + cdlc.getDisbursementList(u).First().Time;
-                colldate.Text = "Collection Date: " + cdlc.getDisbursementList(u).First().CollectionDate.ToShortDateString();
+                contacName.Text = "Contact Person: " + otherinf[0];
+                address.Text = "Collection Point: " + otherinf[1];
+                time.Text = "Collection Time: " + otherinf[2];
+                colldate.Text = "Collection Date: " + otherinf[3]; 
+
                 GridView1.DataSource = cdlc.getDisbursementList(u);
-            GridView1.DataBind();
+                GridView1.DataBind();
+
+
+
+
+
+
             }
         }
 
@@ -53,6 +64,7 @@ namespace LogicUniv1._1.webpage.deptEmpRep
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
             cdlc.confirmRceive(u);
         }
     }

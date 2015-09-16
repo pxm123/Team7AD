@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,27 +13,24 @@ namespace ClassLibraryBL.EntityFacade
         public List<DisbursementList> getDisbursementList(User u)
         {
 
-            var data = (from x in cntx.items
-                        from y in cntx.disbursements
-                        from z in cntx.disbursement_item
-                        from l in cntx.departments
-                        from m1 in cntx.collectionPoints
-                        where l.collectionPointId == m1.collectionPointId && y.departmentId == l.departmentId && y.disbursementId == z.disbursementId && x.itemId == z.itemId && y.status == "WaitingCollection" && y.departmentId == u.DepartmentId
-                        select new DisbursementList
-                        {
-                            CollectionDate = y.collectDate,
-                            DisbusementId = y.disbursementId,
-                            Description = x.description,
-                            CollectQty = z.collectQty,
-                            Photourl = "../images/" + x.description.Trim() + ".jpg",
-                           ContacName = l.contacName,
-                           Address= m1.address,
-                          Time = m1.time
-                        }
-                         ).ToList();
-            int m = data.Count();
-            return data;
-        }
+                                var data = (
+                                           from  z in cntx.disbursement_item 
+                                           join y in cntx.disbursements on z.disbursementId equals y.disbursementId
+                                           where y.status == "WaitingCollection" && y.departmentId==u.DepartmentId
+                                           group z by new { z.itemId} into g        
+                                           join x in cntx.items  on g.Key.itemId equals x.itemId                                                
+                                            select new DisbursementList
+                                            {
+                                                Description = x.description,
+                                                CollectQty = g.Sum(a=>a.collectQty),
+                                                Photourl = "../images/" + x.description.Trim()+".jpg"
+                                            }
+                                             ).ToList();
+                                int m = data.Count();
+                                return data;
+                            }
+       
+
                         public void confirmDisbursement(User u)
                         {
 
@@ -50,6 +48,20 @@ namespace ClassLibraryBL.EntityFacade
                                               where x.disbursementId == x2.disbursementId
                                               select x).FirstOrDefault();
                                 update.status = "Completed";
+                                }
+
+                                var data2 = (from x1 in cntx.items
+                                             from y1 in cntx.requisitions
+                                             from z1 in cntx.requsiiton_item
+                                             where z1.itemId == x1.itemId && z1.requisitionId == y1.requisitionId && y1.status == "WaitingCollection" && y1.departmentId == u.DepartmentId
+                                             select y1).ToList();
+
+                                foreach (requisition x2 in data2)
+                                {
+                                    var update = (from x in cntx.requisitions
+                                                  where x.requisitionId == x2.requisitionId
+                                                  select x).FirstOrDefault();
+                                    update.status = "Completed";
                                 }
                                 cntx.SaveChanges();
                             }
@@ -223,5 +235,33 @@ namespace ClassLibraryBL.EntityFacade
 
 
 
+
+                        public List<string> getrestinfo(User u)
+                        {
+                            List<string> restinfo = new List<string>();
+                            var t = (from x in cntx.departments
+                                     from y in cntx.users
+                                     from z in cntx.collectionPoints
+                                     where y.departmentId == x.departmentId && z.collectionPointId == x.collectionPointId
+                                     select new {x,z}).First();
+                            string contact = t.x.contacName;
+                            string collectionpoint = t.z.address;
+
+
+
+                            var data = (from x in cntx.items
+                                        from y in cntx.disbursements
+                                        from z in cntx.disbursement_item
+                                        from l in cntx.departments
+                                        from m1 in cntx.collectionPoints
+                                        where l.collectionPointId == m1.collectionPointId && y.departmentId == l.departmentId && y.disbursementId == z.disbursementId && x.itemId == z.itemId && y.status == "WaitingCollection" && y.departmentId == u.DepartmentId
+                                        select y.collectDate).FirstOrDefault();
+
+                            restinfo.Add(contact);
+                            restinfo.Add(collectionpoint);
+                            restinfo.Add(t.z.time.ToString());
+                            restinfo.Add(data.ToShortDateString());
+                            return restinfo;
+                        }
     }
 }

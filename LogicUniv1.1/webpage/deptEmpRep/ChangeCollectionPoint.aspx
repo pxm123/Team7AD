@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChangeCollectionPoint.aspx.cs" Inherits="LogicUniv1._1.webpage.deptEmpRep.ChangeCollectionPoint" %>
 
 <!DOCTYPE html>
-
-
 <html>
 <head>
 	
@@ -175,13 +173,11 @@
 			<h1 class="logo-left hidden-xs margin-bottom-60" style="color:white">Logic</h1>			
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="HeadHome.aspx"><i class="fa fa-list-alt fa-medium"></i>Current Requisition</a></li>
-				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-book fa-medium"></i>Previous Requisition</a></li>
-				  <li><a href="DelegateAuthority.aspx"><i class="fa fa-gavel fa-medium"></i>Delegate Authority</a></li>
-				  <li><a href="ChangeRep.aspx" ><i class="fa fa-user fa-medium"></i>Change Representitive</a></li>
-				  <li><a href="ChangeCollectionPoint.aspx" class="active"><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li>
-				  <li><a href="../deptEmp/EmpHome.aspx"  ><i class="fa fa-money fa-medium"></i>Go to Stationery Shop</a></li>
-				</ul>
+				  <li><a href="DepRepHome.aspx" ><i class="fa fa-list-alt fa-medium"></i>Current Disbursement</a></li>
+				  <li><a href="ViewHistoryDisbursement.aspx"><i class="fa fa-book fa-medium"></i>History Disbursement</a></li>
+				  <li><a href="ChangeCollectionPoint.aspx"  class="active"><i class="fa fa-flag-checkered fa-medium"></i>Change Collection Point</a></li> 
+				<li><a href="../deptEmp/EmpHome.aspx"  ><i class="fa fa-money fa-medium"></i>Go to Stationery Shop</a></li>
+                </ul>
 			</div>
 
 		</div> <!-- left section -->
@@ -194,7 +190,7 @@
 
             
            
-			<div class="tm-right-inner-container" style="padding-left:220px">
+			<div class="tm-right-inner-container" style="padding-left:220px"id="prelayer">>
                 <div> 
 
                <div class="auto-style2">
@@ -202,7 +198,7 @@
                        <ContentTemplate>
                            <asp:ScriptManager ID="ScriptManager1" runat="server">
                            </asp:ScriptManager>
-                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-condensed" OnPageIndexChanging="GridView1_PageIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                <Columns>
                                    <asp:BoundField DataField="address" HeaderText="Collect Point" />
                                    <asp:BoundField DataField="time" HeaderText="Collect Time" />
@@ -210,6 +206,9 @@
                                    <ControlStyle CssClass="btn btn-info" />
                                    </asp:CommandField>
                                </Columns>
+                               <EditRowStyle Height="35px" />
+                               <HeaderStyle Height="35px" />
+                               <SelectedRowStyle BackColor="#99FFCC" />
                            </asp:GridView>
                        </ContentTemplate>
                    </asp:UpdatePanel>
@@ -232,7 +231,7 @@
                                        
 
                                         <button class="btn btn-info" data-target="#myModal" data-toggle="modal" type="button" style="width: 240px" >
-                                        <div >Change Collection Point</div>
+                                        <div>Change Collection Point</div>
                                         </button>
                                                             </td>
                                                         </tr>

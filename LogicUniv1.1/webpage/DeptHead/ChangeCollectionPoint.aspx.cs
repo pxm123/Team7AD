@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 using ClassLibraryBL.EntityFacade;
 using ClassLibraryBL.Controller.DeptHead;
 using ClassLibraryBL.Entities;
-namespace LogicUniv1._1.webpage.deptEmpRep
+namespace LogicUniv1._1.webpage.DeptHead
 {
 
     public partial class ChangeCollectionPoint : System.Web.UI.Page
     {
-        User u = new User();
+       
         MaintainCollectionPointController mcpc = new MaintainCollectionPointController();
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
-            if (u == null || u.RoleId != 3)
+            if (u == null || u.RoleId != 1)
             {
                 Response.Redirect("../Security.aspx");
             }
@@ -36,6 +36,7 @@ namespace LogicUniv1._1.webpage.deptEmpRep
 
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
             string collectionP = GridView1.SelectedRow.Cells[0].Text.Trim();
             string deptid = u.DepartmentId;
             mcpc.changeCollectionPoint(u, collectionP);

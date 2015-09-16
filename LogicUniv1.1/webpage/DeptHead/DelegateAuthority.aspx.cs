@@ -13,12 +13,12 @@ namespace LogicUniv1._1.webpage.DeptHead
     {
 
         DelegateAuthorityController dac = new DelegateAuthorityController();
-        User u = new User();
+        
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             User u = (User)Session["UserEntity"];
             if (u == null || u.RoleId != 1)
             {
@@ -55,6 +55,7 @@ namespace LogicUniv1._1.webpage.DeptHead
 
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
             string name = GridEmp.SelectedRow.Cells[0].Text.Trim();
             string uid = GridEmp.SelectedRow.Cells[1].Text.Trim();
             string startDate = checkInDatePicker.Text;
