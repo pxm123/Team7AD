@@ -61,10 +61,23 @@
             border-radius: 15px ;
             text-align:center;
         }
-        
-        
-
     </style>
+
+    <script>
+        $(function () {
+            var roleId = "<%= Session["userRole"]%>";
+           
+            if (roleId == 1) {
+                document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
+            }
+            if (roleId == 3) {
+                document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
+            }
+            else {
+                $("#1").remove();
+            }
+        });
+    </script>
 
 
     <script id="resultTemplate" type="text/x-handlebars">
@@ -252,7 +265,7 @@
 				  <li><a href="EmpHome.aspx" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
 				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
-				 
+				  <li><a id="1"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
 				</ul>
 			</div>
 
