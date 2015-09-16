@@ -78,8 +78,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTestFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestFacade.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryBL\ClassLibraryBL\ClassLibraryBL.csproj">

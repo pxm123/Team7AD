@@ -30,13 +30,13 @@ namespace LogicUniv1._1.webpage.deptEmp
                 string idstr = Request.QueryString["idstr"];
                 string amountstr = Request.QueryString["amountstr"];
                 itemList = (List<item>)Session["itemList"];
-
                 idlistInt = rnrc.getIdlistInt(idstr);
-
                 amountlistInt = rnrc.getAmountlistInt(amountstr);
 
-                namelist = rnrc.getNamelist(itemList, idlistInt);
+                //if(amountlistInt.Count)
 
+
+                namelist = rnrc.getNamelist(itemList, idlistInt);
                 sclist = rnrc.addShoppingItem(namelist, amountlistInt, idlistInt);
                 Session["sclist"] = sclist;
                 GridView1.DataSource = sclist;

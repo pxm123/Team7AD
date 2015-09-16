@@ -79,8 +79,8 @@
             <br> 
             </div>
             <div id="bbb">
-            <input type="checkbox" name="choice" value="{{ m3 }}" >
-            <input type="text" id="{{ m3 }}" name="amount" style="width:130px">
+            <input type="checkbox" name="choice" value="{{ m3 }}">
+            <input type="text" id="{{ m3 }}" name="amount" style="width:120px" maxlength="3" onkeypress="return isNumber(event)" placeholder="How many?">
             </div>
         </div>
     </script>
@@ -100,7 +100,6 @@
                        m1: itemList[i].balance,
                        m2: itemList[i].description,
                        m3: itemList[i].itemId
-
                    };
                    $("#resultdemo").append(goodtemplate(data));
 
@@ -274,6 +273,7 @@
                         <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Search By Category" CssClass="btn btn-info" Height="32px" Width="181px" />
                  
                         <asp:Button ID="Button2" runat="server" Text="Add To Cart" OnClick="Button2_Click" CssClass="btn btn-danger" />
+                        <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
                         <asp:HiddenField ID="HiddenField1" runat="server" />
                         <asp:HiddenField ID="HiddenField2" runat="server" />
                     </div>
@@ -316,6 +316,31 @@
 
         });
     </script>
+<script>
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+<%--<script>
+    $(document).ready(function(){
+        $('input[type="checkbox"]').click(function () {
+            if($(this).prop("checked") == true){
+                alert("Checkbox is unchecked.");
+            }
+            else if($(this).prop("checked") == false){
+                alert("Checkbox is unchecked.");
+            }
+        });
+    });
+</script>--%>
+
 		<!-- right section -->
         </form>
     </body>  
