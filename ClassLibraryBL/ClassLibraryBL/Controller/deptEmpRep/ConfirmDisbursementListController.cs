@@ -21,5 +21,10 @@ namespace ClassLibraryBL.Controller.deptEmpRep
         }
 
 
+
+        public List<string> getrestinfo(User u)
+        {
+            return df.getrestinfo(u);
+        }
     }
 }

@@ -15,7 +15,6 @@ namespace LogicUniv1._1.webpage.deptEmpRep
     {
         ViewPastDisbursementListController vpdc = new ViewPastDisbursementListController();
 
-        User u = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];

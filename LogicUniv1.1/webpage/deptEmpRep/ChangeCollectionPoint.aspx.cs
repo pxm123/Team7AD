@@ -7,35 +7,30 @@ using System.Web.UI.WebControls;
 using ClassLibraryBL.EntityFacade;
 using ClassLibraryBL.Controller.DeptHead;
 using ClassLibraryBL.Entities;
-namespace LogicUniv1._1.webpage.DeptHead
+namespace LogicUniv1._1.webpage.deptEmpRep
 {
-
     public partial class ChangeCollectionPoint : System.Web.UI.Page
     {
-        User u = new User();
         MaintainCollectionPointController mcpc = new MaintainCollectionPointController();
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
-            if (u == null || u.RoleId != 1)
+            if (u == null || u.RoleId != 3)
             {
                 Response.Redirect("../Security.aspx");
             }
 
             getCollectionPointTime(u);
-
-
         }
         public void getCollectionPointTime(User u)
         {
-           GridView1.DataSource= mcpc.getCollectionPointTime(u);
-           GridView1.DataBind();
+            GridView1.DataSource = mcpc.getCollectionPointTime(u);
+            GridView1.DataBind();
 
         }
-
-
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
+            User u = (User)Session["UserEntity"];
             string collectionP = GridView1.SelectedRow.Cells[0].Text.Trim();
             string deptid = u.DepartmentId;
             mcpc.changeCollectionPoint(u, collectionP);
@@ -51,9 +46,7 @@ namespace LogicUniv1._1.webpage.DeptHead
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Label1.Text = GridView1.SelectedRow.Cells[0].Text.Trim();
 
-            //ClientScript.RegisterStartupScript(this.GetType(), "why", "('#myModal').myModalLabel({})", true);
         }
     }
 }
