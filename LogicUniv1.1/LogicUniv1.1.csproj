@@ -475,6 +475,7 @@
     <Content Include="webpage\Master.aspx" />
     <Content Include="webpage\stockSupervisor\StockSurpervisorDiscrepancyItem.aspx" />
     <Content Include="webpage\stockSupervisor\TrendForSupplier.aspx" />
+    <None Include="Properties\PublishProfiles\LogicUniv.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
