@@ -42,11 +42,11 @@
     <script>
         $(function () {
             var roleId = "<%= Session["userRole"]%>";
-
+            console.log(roleId);
             if (roleId == 1) {
                 document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
             }
-            if (roleId == 3) {
+            else if (roleId == 3) {
                 document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
             }
             else {
@@ -54,6 +54,7 @@
             }
         });
     </script>
+
     <style type="text/css">
         .auto-style1 {
             width: 212px;
