@@ -39,20 +39,22 @@
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
     <script>
-        $(function () {
-            var roleId = "<%= Session["userRole"]%>";
-
-            if (roleId == 1) {
-                document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
-            }
-            if (roleId == 3) {
-                document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
-            }
-            else {
-                $("#1").remove();
-            }
-        });
+        <script>
+            $(function () {
+                var roleId = "<%= Session["userRole"]%>";
+                console.log(roleId);
+                if (roleId == 1) {
+                    document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
+                }
+                else if (roleId == 3) {
+                    document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
+                }
+                else {
+                    $("#1").remove();
+                }
+            });
     </script>
+
 
 </head>
 <body>
