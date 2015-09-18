@@ -26,17 +26,11 @@ namespace ClassLibraryBL
     	[DataMember]
         public int messageid { get; set; }
     	[DataMember]
-        public string message1 { get; set; }
+        public string msg { get; set; }
     	[DataMember]
-        public string message2 { get; set; }
+        public Nullable<System.DateTime> mesagetime { get; set; }
     	[DataMember]
-        public string message3 { get; set; }
-    	[DataMember]
-        public string message4 { get; set; }
-    	[DataMember]
-        public string message5 { get; set; }
-    	[DataMember]
-        public string message6 { get; set; }
+        public string status { get; set; }
     
     	[DataMember]
         public virtual ICollection<user> users { get; set; }

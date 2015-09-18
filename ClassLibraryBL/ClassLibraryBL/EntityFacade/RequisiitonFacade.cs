@@ -241,7 +241,7 @@ namespace ClassLibraryBL.EntityFacade
         public List<requisition> getPreRequisition(User u)
         {
             var t = (from x in luse.requisitions
-                     where x.status_dept == "Approved" || x.status_dept == "Reject"
+                     where x.status_dept == "Approved" || x.status_dept == "Rejected" && x.departmentId == u.DepartmentId
                      select x).ToList();
             return t;
         }

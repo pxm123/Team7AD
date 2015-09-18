@@ -13,7 +13,7 @@ namespace LogicUniv1._1.webpage.DeptHead
     {
 
         DelegateAuthorityController dac = new DelegateAuthorityController();
-        
+        NewMessageController nmc = new NewMessageController();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,6 +27,13 @@ namespace LogicUniv1._1.webpage.DeptHead
 
 
             getAllEmployee(u);
+
+            Session["newmsg"] = nmc.getAllmessage(u);
+
+            int msgCount = nmc.getAllmessage(u).Count();
+            msgcount2.Text = msgCount.ToString();
+            NewMessage.Text = "You have " + msgCount + " new message";
+
         }
 
         public void getAllEmployee(User u)

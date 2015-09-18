@@ -14,6 +14,7 @@ namespace LogicUniv1._1.webpage.DeptHead
     {
         User u = new User();
         ViewCurrentRequistionController vrc = new ViewCurrentRequistionController();
+        NewMessageController nmc = new NewMessageController();
         protected void Page_Load(object sender, EventArgs e)
         {
             //User userbean = (User)Session["UserEntity"];
@@ -24,21 +25,30 @@ namespace LogicUniv1._1.webpage.DeptHead
             {
                 Response.Redirect("../Security.aspx");
             }
-
             if (vrc.getPendingRequisition(u).Count() == 0)
             {
                 flag.Text = "There is no Current Requsition at this moment.";
                 //RejectBtn.Visible = false;
                 //ApproveBtn.Visible = false;
             }
-
             else
             {
                 GridView1.DataSource = vrc.getPendingRequisition(u);
                 GridView1.DataBind();
-               
             }
+
+            //message part
+
+            Session["newmsg"] = nmc.getAllmessage(u);
+
+            int msgCount = nmc.getAllmessage(u).Count();
+            msgcount2.Text = msgCount.ToString();
+            NewMessage.Text = "You have " + msgCount + " new message";
+
+
+
         }
+
         protected void GridView1_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
