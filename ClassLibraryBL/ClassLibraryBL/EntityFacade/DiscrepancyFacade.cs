@@ -171,6 +171,18 @@ namespace ClassLibraryBL.EntityFacade
                               where a.discrepancyId == s
                               select a).SingleOrDefault();
             ac.status = "Approved";
+            var n = from a in lg.discrepancy_item
+                    from b in lg.items
+                    where a.itemId == b.itemId && a.discrepancyId == s
+                    select new
+                    {
+                        b,
+                        a.reportQty
+                    };
+           foreach(var a in n.ToList())
+           {
+               a.b.balance = a.b.balance - a.reportQty;             
+           }
             lg.SaveChanges();
         }
         public void rejectdiscrepancy(int s)

@@ -32,6 +32,7 @@ namespace LogicUniv1._1
         {
             int s = Convert.ToInt32(Session["id"].ToString());
             manager.apporvediscrepancy(s);
+            Response.Redirect("SMHome.aspx");
            
         }
 
@@ -39,6 +40,7 @@ namespace LogicUniv1._1
         {
             int s = Convert.ToInt32(Session["id"].ToString());
             manager.rejectdiscrepancy(s);
+            Response.Redirect("SMHome.aspx");
         }
     }
 }
