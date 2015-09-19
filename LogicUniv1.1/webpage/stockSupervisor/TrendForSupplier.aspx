@@ -251,7 +251,7 @@
                                 <asp:ListItem>11</asp:ListItem>
                                 <asp:ListItem>12</asp:ListItem>
                            </asp:DropDownList>
-                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthFrom" ControlToValidate="DropDownListMonthTo" Display="Dynamic" ErrorMessage="the second month shoul greater than the first monthal" Operator="GreaterThanEqual" ForeColor="Red"></asp:CompareValidator>
+                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthFrom" ControlToValidate="DropDownListMonthTo" Display="Dynamic" ErrorMessage="The second month should greater than the first month." Operator="GreaterThanEqual" ForeColor="Red"></asp:CompareValidator>
                        </td>
                    </tr>
                </table>
