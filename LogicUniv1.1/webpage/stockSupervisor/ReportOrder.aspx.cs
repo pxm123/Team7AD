@@ -18,7 +18,7 @@ namespace LogicUniv1._1.webpage.stockSupervisor
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
-            if (u.RoleId != 5)
+            if (u == null || u.RoleId != 5)
             {
                 Response.Redirect("../Security.aspx");
             }
