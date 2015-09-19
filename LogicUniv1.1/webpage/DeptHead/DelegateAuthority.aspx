@@ -30,6 +30,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
     <%--  --%>
+    <script src="../js/handlebars-v3.0.3.js" type="text/javascript"></script>
     <!-- this page specific styles -->
     <link rel="stylesheet" href="../css/compiled/index.css" type="text/css" media="screen" />
     	<!-- scripts -->
@@ -96,7 +97,9 @@
             <li class="notification-dropdown hidden-xs hidden-sm">
                 <a href="#" class="trigger">
                     <i class="icon-warning-sign"></i>
-                    <span class="count">8</span>
+                    <span class="count">
+                        <asp:Label ID="msgcount2" runat="server" Text=""></asp:Label>
+                    </span>
                 </a>
                 <div class="pop-dialog">
                     <div class="pointer right">
@@ -105,35 +108,27 @@
                     </div>
                     <div class="body">
                         <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                        <div class="notifications">
-                            <h3>你有6条信息</h3>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> 新用户注册
-                                <span class="time"><i class="icon-time"></i> 13分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> 新用户注册
-                                <span class="time"><i class="icon-time"></i> 18分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-envelope-alt"></i> 新消息来自Alejandra
-                                <span class="time"><i class="icon-time"></i> 28分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-signin"></i> 新用户注册
-                                <span class="time"><i class="icon-time"></i> 49分钟前.</span>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="icon-download-alt"></i> 新订单
-                                <span class="time"><i class="icon-time"></i> 1天前.</span>
-                            </a>
+                        <div  class="notifications">
+                            <h3>
+                            <asp:Label ID="NewMessage" runat="server" Text="Label"></asp:Label>
+                            </h3>
+
+
+                            <div id="msgbox">
+
+                            </div>
+
+
+
+
                             <div class="footer">
-                                <a href="#" class="logout">查看所有消息</a>
+                                <a class="logout">End</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </li>
+
             <li class="notification-dropdown hidden-xs hidden-sm">
                 <a href="#" class="trigger">
                     <i class="icon-envelope"></i>
@@ -357,6 +352,33 @@
         </div>	
 		<!-- right section -->
     </form>
+    <script id="msgTemplate" type="text/x-handlebars">
+            <div class="item">
+            <i class="icon-signin"></i>New Requisition: {{ m0 }}
+            <span class="time"><i class="icon-time"></i>{{ m1 }} hours ago</span>
+            </div>
+            </script>	
+    	
+            <script>
+                $(function () {
+                    var goodtemplate = Handlebars.compile($("#msgTemplate").html());
+                    var msgList = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["newmsg"])%>
+
+                            console.log(msgList[0].msg);
+
+                    for (var i = 0; i < msgList.length; i++) {
+                        var data = {
+                            m0: msgList[i].MSG1,
+                            m1: msgList[i].Timespan,
+                        };
+                        $("#msgbox").append(goodtemplate(data));
+                    }
+                });
+            </script>
+
+
+
+
         <script>
             $(function () {
                 console.log(window.innerHeight);

@@ -12,6 +12,7 @@ namespace LogicUniv1._1.webpage.DeptHead
     public partial class PreviousRequisition : System.Web.UI.Page
     {
         User u = new User();
+        NewMessageController nmc = new NewMessageController();
         ViewPastRequistionController vprc = new ViewPastRequistionController();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,6 +35,13 @@ namespace LogicUniv1._1.webpage.DeptHead
                 GridView2.DataBind();
 
             }
+
+            Session["newmsg"] = nmc.getAllmessage(u);
+
+            int msgCount = nmc.getAllmessage(u).Count();
+            msgcount2.Text = msgCount.ToString();
+            NewMessage.Text = "You have " + msgCount + " new message";
+
         }
 
         protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)

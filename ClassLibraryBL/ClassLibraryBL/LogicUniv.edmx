@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUnivSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -97,17 +97,16 @@
           <Property Name="priority" Type="int" />
           <Property Name="price" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LogicUnivSystem.dbo.message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="message">
           <Key>
             <PropertyRef Name="messageid" />
           </Key>
           <Property Name="messageid" Type="int" Nullable="false" />
-          <Property Name="message1" Type="varchar(max)" />
-          <Property Name="message2" Type="varchar(max)" />
-          <Property Name="message3" Type="varchar(max)" />
-          <Property Name="message4" Type="varchar(max)" />
-          <Property Name="message5" Type="varchar(max)" />
-          <Property Name="message6" Type="varchar(max)" />
+          <Property Name="msg" Type="varchar(max)" />
+          <Property Name="mesagetime" Type="datetime" />
+          <Property Name="status" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="purchase">
           <Key>
@@ -481,18 +480,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_users_users">
-          <End Role="message" Type="Self.message" Multiplicity="0..1" />
-          <End Role="users" Type="Self.users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="message">
-              <PropertyRef Name="messageid" />
-            </Principal>
-            <Dependent Role="users">
-              <PropertyRef Name="messageid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="LogicUnivSystemModelStoreContainer">
           <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="collectionPoint" EntityType="Self.collectionPoint" Schema="dbo" store:Type="Tables" />
@@ -503,7 +490,6 @@
           <EntitySet Name="discrepancy_item" EntityType="Self.discrepancy_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="item_supplier" EntityType="Self.item_supplier" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="purchase" EntityType="Self.purchase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="purchase_item" EntityType="Self.purchase_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="requisition" EntityType="Self.requisition" Schema="dbo" store:Type="Tables" />
@@ -512,6 +498,14 @@
           <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[message].[messageid] AS [messageid], 
+[message].[msg] AS [msg], 
+[message].[mesagetime] AS [mesagetime], 
+[message].[status] AS [status]
+FROM [dbo].[message] AS [message]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_department_collectionPoint" Association="Self.FK_department_collectionPoint">
             <End Role="collectionPoint" EntitySet="collectionPoint" />
             <End Role="department" EntitySet="department" />
@@ -594,10 +588,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_users_role" Association="Self.FK_users_role">
             <End Role="role" EntitySet="role" />
-            <End Role="users" EntitySet="users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_users_users" Association="Self.FK_users_users">
-            <End Role="message" EntitySet="message" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
         </EntityContainer>
@@ -1225,13 +1215,10 @@
             <PropertyRef Name="messageid" />
           </Key>
           <Property Name="messageid" Type="Int32" Nullable="false" />
-          <Property Name="message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="message2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="message3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="message4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="message5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="message6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="users" Relationship="LogicUnivSystemModel.FK_users_users" FromRole="message" ToRole="user" />
+          <Property Name="msg" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="mesagetime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_users_users">
           <End Type="LogicUnivSystemModel.message" Role="message" Multiplicity="0..1" />
@@ -1449,12 +1436,9 @@
           <EntitySetMapping Name="messages">
             <EntityTypeMapping TypeName="LogicUnivSystemModel.message">
               <MappingFragment StoreEntitySet="message">
-                <ScalarProperty Name="message6" ColumnName="message6" />
-                <ScalarProperty Name="message5" ColumnName="message5" />
-                <ScalarProperty Name="message4" ColumnName="message4" />
-                <ScalarProperty Name="message3" ColumnName="message3" />
-                <ScalarProperty Name="message2" ColumnName="message2" />
-                <ScalarProperty Name="message1" ColumnName="message1" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="mesagetime" ColumnName="mesagetime" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
                 <ScalarProperty Name="messageid" ColumnName="messageid" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -419,6 +419,7 @@
     <Content Include="webpage\js\bootstrap.min.js" />
     <Content Include="webpage\js\fuelux.wizard.js" />
     <Content Include="webpage\js\fullcalendar.min.js" />
+    <Content Include="webpage\js\handlebars-v3.0.3.js" />
     <Content Include="webpage\js\handlebars-v4.0.2.js" />
     <Content Include="webpage\js\HeadRequisition.js" />
     <Content Include="webpage\js\jquery-1.11.1.min.js" />

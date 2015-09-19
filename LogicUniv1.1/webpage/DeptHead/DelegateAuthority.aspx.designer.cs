@@ -13,6 +13,24 @@ namespace LogicUniv1._1.webpage.DeptHead {
     public partial class DelegateAuthority {
         
         /// <summary>
+        /// msgcount2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label msgcount2;
+        
+        /// <summary>
+        /// NewMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NewMessage;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

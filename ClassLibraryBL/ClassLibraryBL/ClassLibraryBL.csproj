@@ -69,6 +69,7 @@
     <Compile Include="Controller\DeptHead\DelegateAuthorityController.cs" />
     <Compile Include="Controller\DeptHead\MaintainCollectionPointController.cs" />
     <Compile Include="Controller\DeptHead\MaintainEmployeeRepController.cs" />
+    <Compile Include="Controller\DeptHead\NewMessageController.cs" />
     <Compile Include="Controller\DeptHead\ViewCurrentRequisitionDetails.cs" />
     <Compile Include="Controller\DeptHead\ViewCurrentRequistionController.cs" />
     <Compile Include="Controller\DeptHead\ViewPastRequistionController.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Entities\DiscrepancyMixBean.cs" />
     <Compile Include="Entities\itemEntity.cs" />
     <Compile Include="Entities\itemValidate.cs" />
+    <Compile Include="Entities\realmessage.cs" />
     <Compile Include="Entities\purchaseEntity.cs" />
     <Compile Include="Entities\Purchaseitem111.cs" />
     <Compile Include="Entities\ReportOrderEntity.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="EntityFacade\DiscrepancyFacade.cs" />
     <Compile Include="EntityFacade\InventoryFacade.cs" />
     <Compile Include="EntityFacade\LoginFacade.cs" />
+    <Compile Include="EntityFacade\messageFacade.cs" />
     <Compile Include="EntityFacade\PurchaseOrderFacade.cs" />
     <Compile Include="EntityFacade\ReportOrderFacade.cs" />
     <Compile Include="EntityFacade\RequestItemFacade.cs" />

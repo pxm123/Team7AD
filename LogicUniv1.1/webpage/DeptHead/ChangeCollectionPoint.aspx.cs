@@ -14,6 +14,7 @@ namespace LogicUniv1._1.webpage.DeptHead
     {
        
         MaintainCollectionPointController mcpc = new MaintainCollectionPointController();
+        NewMessageController nmc = new NewMessageController();
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
@@ -23,6 +24,15 @@ namespace LogicUniv1._1.webpage.DeptHead
             }
 
             getCollectionPointTime(u);
+
+            
+
+            Session["newmsg"] = nmc.getAllmessage(u);
+
+            int msgCount = nmc.getAllmessage(u).Count();
+            msgcount2.Text = msgCount.ToString();
+            NewMessage.Text = "You have " + msgCount + " new message";
+
 
 
         }
