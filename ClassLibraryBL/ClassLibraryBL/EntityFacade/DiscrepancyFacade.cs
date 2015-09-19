@@ -138,7 +138,7 @@ namespace ClassLibraryBL.EntityFacade
         {
             var N = from a in lg.discrepancies
                     join b in lg.users on a.userId equals b.userId
-                    where a.status == "Pending"
+                    where a.status == "Pending" && a.totalPrice>250
                     select new DiscrepancyMixBean
                     {
                         DiscrepancyId = a.discrepancyId,
