@@ -251,13 +251,14 @@
                                 <asp:ListItem>11</asp:ListItem>
                                 <asp:ListItem>12</asp:ListItem>
                            </asp:DropDownList>
-                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthFrom" ControlToValidate="DropDownListMonthTo" Display="Dynamic" ErrorMessage="the second month shoul greater than the first monthal" Operator="GreaterThanEqual"></asp:CompareValidator>
+                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthFrom" ControlToValidate="DropDownListMonthTo" Display="Dynamic" ErrorMessage="the second month shoul greater than the first monthal" Operator="GreaterThanEqual" ForeColor="Red"></asp:CompareValidator>
                        </td>
                    </tr>
                </table>
            </div>
 
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Submit" CssClass="btn btn-info btn-sm" />
+                 <asp:Label ID="Label7" runat="server"></asp:Label>
              <div>
 
 

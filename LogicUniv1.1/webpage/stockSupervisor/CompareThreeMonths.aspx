@@ -48,7 +48,7 @@
     <script src="../js/theme.js"></script>
     <style type="text/css">
         .auto-style2 {
-            width: 149px;
+            width: 454px;
         }
         .auto-style3 {
             width: 100px;
@@ -58,7 +58,7 @@
             height: 22px;
         }
         .auto-style5 {
-            width: 149px;
+            width: 454px;
             height: 22px;
         }
     </style>
@@ -206,7 +206,7 @@
                 
 				<table><tr><td class="auto-style3">
                         <asp:Label ID="Label2" runat="server" Text="Month:"></asp:Label></td><td class="auto-style2">
-                    <asp:DropDownList ID="DropDownListMonthA" runat="server">
+                    <asp:DropDownList ID="DropDownListMonthA" runat="server" AutoPostBack="True">
                         
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
@@ -221,11 +221,13 @@
                                 <asp:ListItem>11</asp:ListItem>
                                 <asp:ListItem>12</asp:ListItem>
 
-                    </asp:DropDownList></td></tr>
+                    </asp:DropDownList>
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToCompare="DropDownListMonthA" ControlToValidate="DropDownListMonthC" Display="Dynamic" ErrorMessage="please select three different months              " ForeColor="Red" Operator="NotEqual"></asp:CompareValidator>
+                    </td></tr>
                     <tr>
                         <td></td>
-                        <td>
-                                <asp:DropDownList ID="DropDownListMonthB" runat="server">
+                        <td class="auto-style2">
+                                <asp:DropDownList ID="DropDownListMonthB" runat="server" AutoPostBack="True">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
@@ -240,12 +242,14 @@
                                 <asp:ListItem>12</asp:ListItem>
 
                     </asp:DropDownList>
+                        &nbsp;&nbsp;
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="DropDownListMonthA" ControlToValidate="DropDownListMonthB" CultureInvariantValues="True" Display="Dynamic" ErrorMessage="please select three different months              " Operator="NotEqual" ForeColor="Red"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>
-                            <asp:DropDownList ID="DropDownListMonthC" runat="server">
+                        <td class="auto-style2">
+                            <asp:DropDownList ID="DropDownListMonthC" runat="server" AutoPostBack="True">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
@@ -260,6 +264,9 @@
                                 <asp:ListItem>12</asp:ListItem>
 
                     </asp:DropDownList>
+
+                        &nbsp;&nbsp;&nbsp;
+                            <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="DropDownListMonthB" ControlToValidate="DropDownListMonthC" Display="Dynamic" ErrorMessage="please select three different months              " Operator="NotEqual" ForeColor="Red"></asp:CompareValidator>
 
                         </td>
                     </tr>
