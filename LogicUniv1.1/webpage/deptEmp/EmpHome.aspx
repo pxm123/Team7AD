@@ -130,7 +130,7 @@
                     console.log($("#"+c).val());
                     b = b + $("#" + c).val() + "/";
 
-                    if ($("#" + c).val() == "") {
+                    if ($("#" + c).val() == "" || $(this).val() == null) {
                         alert("Sorry, you forgot typing in How Many you want for one or more items. Please add to chart again.");
                         
                     }

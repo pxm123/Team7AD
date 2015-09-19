@@ -86,14 +86,16 @@ namespace LogicUniv1._1.webpage.deptEmp
             Response.Write(b);
             c = HiddenField2.Value;
             Response.Write(c);
+            if (c == "/" || b == "/")
+            {
+                Response.Redirect("EmpHome.aspx");
+            }
+            else
+            {
+                string s_url = "ShoppingCart.aspx?idstr=" + b + "&amountstr=" + c;
+                Response.Redirect(s_url);
 
-
-
-            string s_url = "ShoppingCart.aspx?idstr=" + b + "&amountstr=" + c;
-            Response.Redirect(s_url);
-
-
-
+            }
 
         }
 
