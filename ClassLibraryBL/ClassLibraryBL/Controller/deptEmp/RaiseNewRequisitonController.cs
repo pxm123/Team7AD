@@ -63,7 +63,7 @@ namespace ClassLibraryBL.Controller.deptEmp
         }
 
         public List<ShoppingItem> addShoppingItem(List<string> namelist, List<int> amountlistInt, List<int> idlistInt)
-        {
+        { 
             for (int i = 0; i < namelist.Count; i++)
             {
                 ShoppingItem si = new ShoppingItem();

@@ -17,13 +17,11 @@ namespace LogicUniv1._1.webpage.stockManager
         ApproveStockAdjustmentController Manager = new ApproveStockAdjustmentController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             User u = (User)Session["UserEntity"];
             if (u == null || u.RoleId != 6)
             {
                 Response.Redirect("../Security.aspx");
             }
-
                 //User userbean = (User)Session["UserEntity"];
                 //storeM.Text = "Hello," + userbean.Name;
                 //var N = from a in ctx.discrepancies
@@ -41,7 +39,6 @@ namespace LogicUniv1._1.webpage.stockManager
 
                 GridView1.DataSource = Manager.checkdiscrepancy();
                 GridView1.DataBind();                
-            
         }
         protected void GridView1_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {

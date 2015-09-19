@@ -39,22 +39,20 @@
     <script src="../js/jquery.flot.resize.js"></script>
     <script src="../js/theme.js"></script>
     <script>
-        <script>
-            $(function () {
-                var roleId = "<%= Session["userRole"]%>";
-                console.log(roleId);
-                if (roleId == 1) {
-                    document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
-                }
-                else if (roleId == 3) {
-                    document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
-                }
-                else {
-                    $("#1").remove();
-                }
-            });
+        $(function () {
+            var roleId = "<%= Session["userRole"]%>";
+            console.log(roleId);
+            if (roleId == 1) {
+                document.getElementById("lead").setAttribute("href", "../DeptHead/HeadHome.aspx");
+            }
+            else if (roleId == 3) {
+                document.getElementById("lead").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
+            }
+            else {
+                $("#lead").remove();
+            }
+        });
     </script>
-
 
 </head>
 <body>
@@ -184,7 +182,7 @@
 				  <li><a href="EmpHome.aspx"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
 				  <li><a href="PreviousRequisition.aspx" class="active"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
-				 <li><a id="1"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
+				 <li><a id="lead"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
 				</ul>
 			</div>
 

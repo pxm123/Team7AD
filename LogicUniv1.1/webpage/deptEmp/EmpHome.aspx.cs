@@ -17,13 +17,14 @@ namespace LogicUniv1._1.webpage.deptEmp
         protected void Page_Load(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
-            Session["userRole"] = u.RoleId;
-
             if (u == null)
             {
                 Response.Redirect("../Security.aspx");
             }
 
+            Session["userRole"] = u.RoleId;
+
+            
             if (!IsPostBack)
             {
                 var N = from a in lu.items

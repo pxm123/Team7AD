@@ -203,7 +203,7 @@
 			<div class="tm-left-inner-container">
 				<ul class="nav nav-stacked templatemo-nav">
 				  <li><a href="EmpHome.aspx" ><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="PreviousRequisition.aspx" ><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
+				  <li><a href="PreviousRequisition.aspx"  class="active" ><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
 				 <li><a id="1"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
 				</ul>

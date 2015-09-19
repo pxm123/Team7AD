@@ -43,13 +43,13 @@
             var roleId = "<%= Session["userRole"]%>";
             console.log(roleId);
             if (roleId == 1) {
-                document.getElementById("1").setAttribute("href", "../DeptHead/HeadHome.aspx");
+                document.getElementById("lead").setAttribute("href", "../DeptHead/HeadHome.aspx");
             }
             else if (roleId == 3) {
-                document.getElementById("1").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
+                document.getElementById("lead").setAttribute("href", "../deptEmpRep/DepRepHome.aspx");
             }
             else {
-                $("#1").remove();
+                $("#lead").remove();
             }
         });
     </script>
@@ -183,7 +183,7 @@
 				  <li><a href="EmpHome.aspx" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
 				  <li><a href="PreviousRequisition.aspx"><i class="fa fa-shopping-cart fa-medium"></i>Previous Requisition</a></li>
 				  <li><a href="CurrentRequisition.aspx"><i class="fa fa-send-o fa-medium"></i>Current Requisition</a></li>
-				 <li><a id="1"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
+				 <li><a id="lead"><i class="fa fa-home fa-medium"></i>Back To WorkStation</a></li>
 				</ul>
 			</div>
 

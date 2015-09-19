@@ -37,10 +37,15 @@ namespace LogicUniv1._1.webpage.deptEmp
 
 
                 namelist = rnrc.getNamelist(itemList, idlistInt);
+                try{
                 sclist = rnrc.addShoppingItem(namelist, amountlistInt, idlistInt);
                 Session["sclist"] = sclist;
                 GridView1.DataSource = sclist;
                 GridView1.DataBind();
+                }
+                catch(Exception ex){
+                    Response.Redirect("EmpHome.aspx");
+                }
 
             }
 

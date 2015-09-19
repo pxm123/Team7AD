@@ -261,6 +261,7 @@
     <Content Include="webpage\deptEmpRep\DisbursementListDetails.aspx" />
     <Content Include="webpage\deptEmpRep\ViewHistoryDisbursement.aspx" />
     <Content Include="webpage\deptEmp\CurrentRequisition.aspx" />
+    <Content Include="webpage\deptEmp\CurrentRequisitionDetails.aspx" />
     <Content Include="webpage\deptEmp\EmpHome.aspx" />
     <Content Include="webpage\deptEmp\js\handlebars-v3.0.3.js" />
     <Content Include="webpage\deptEmp\js\jquery-2.1.4.js" />
@@ -658,6 +659,13 @@
     </Compile>
     <Compile Include="webpage\deptEmp\CurrentRequisition.aspx.designer.cs">
       <DependentUpon>CurrentRequisition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\deptEmp\CurrentRequisitionDetails.aspx.cs">
+      <DependentUpon>CurrentRequisitionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\deptEmp\CurrentRequisitionDetails.aspx.designer.cs">
+      <DependentUpon>CurrentRequisitionDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\deptEmp\EmpHome.aspx.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
