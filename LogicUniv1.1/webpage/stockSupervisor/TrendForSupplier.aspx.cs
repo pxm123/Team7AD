@@ -71,7 +71,11 @@ namespace LogicUniv1._1.webpage.stockSupervisor
             List<TrendForSupplierEntity> list = new List<TrendForSupplierEntity>();
 
             // Test Chart
-
+          
+            /*if (DropDownListDepartment == null || DropDownListCategory == null || DropDownListType == null)
+            {
+                Label7.Text = "please fill in all the dropboxes.";
+            }*/
 
             if (type == "Quantity")
             {

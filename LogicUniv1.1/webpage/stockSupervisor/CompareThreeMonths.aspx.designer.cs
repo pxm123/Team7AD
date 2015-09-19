@@ -40,6 +40,15 @@ namespace LogicUniv1._1.webpage.stockSupervisor {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListMonthA;
         
         /// <summary>
+        /// CompareValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
+        
+        /// <summary>
         /// DropDownListMonthB control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace LogicUniv1._1.webpage.stockSupervisor {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListMonthB;
         
         /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
         /// DropDownListMonthC control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace LogicUniv1._1.webpage.stockSupervisor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListMonthC;
+        
+        /// <summary>
+        /// CompareValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
         
         /// <summary>
         /// Label1 control.
