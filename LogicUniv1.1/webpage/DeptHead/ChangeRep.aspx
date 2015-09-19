@@ -352,7 +352,14 @@
                     }
                 });
             </script>
+        <script>
+            $(function () {
+                $("#Button1").on("click", function () {
 
+                    document.getElementById("Button1").setAttribute("value", "Please Wait");
+                });
+            });
+    </script>
 
         <script>
             $(function () {

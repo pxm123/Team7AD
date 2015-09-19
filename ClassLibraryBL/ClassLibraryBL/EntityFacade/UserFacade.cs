@@ -119,7 +119,5 @@ namespace ClassLibraryBL.EntityFacade
             client.Send(messge);
             messge.Attachments.Dispose();
         }
-
-
     }
 }

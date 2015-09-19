@@ -23,7 +23,6 @@ namespace LogicUniv1._1.webpage.deptEmp
             }
 
             Session["userRole"] = u.RoleId;
-
             
             if (!IsPostBack)
             {

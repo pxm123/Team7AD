@@ -122,12 +122,18 @@
                var b="/";
                var c="";
                $("#<%=Button2.ClientID%>").on("click",function(){
-                $("input:checkbox[name=choice]:checked").each(function(){
+                   $("input:checkbox[name=choice]:checked").each(function () {
+                       
                     console.log($(this).val());
                     a=a+$(this).val()+"/";
                     c=$(this).val().toString();
                     console.log($("#"+c).val());
-                    b=b+$("#"+c).val()+"/";
+                    b = b + $("#" + c).val() + "/";
+
+                    if ($("#" + c).val() == "") {
+                        alert("Sorry, you forgot typing in How Many you want for one or more items. Please add to chart again.");
+                        
+                    }
                 });
                 console.log(a);
                 console.log(b);
@@ -137,6 +143,9 @@
             });
            }); 
       </script>
+
+
+
 </head>
 <body>
     <header class="navbar navbar-inverse" role="banner" id="headlayer">
@@ -294,7 +303,7 @@
 
                                     <div id="resultdemo">
   
-                                          </div>
+           </div>
             </div>
 
 
@@ -342,15 +351,19 @@
 
 
 <%--<script>
-    $(document).ready(function(){
-        $('input[type="checkbox"]').click(function () {
-            if($(this).prop("checked") == true){
-                alert("Checkbox is unchecked.");
-            }
-            else if($(this).prop("checked") == false){
-                alert("Checkbox is unchecked.");
-            }
-        });
+    $(function () {
+        
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        if (getParameterByName('error') == "0") {
+            alert("Please make sure all items you selected got a value.");
+        }
+        
     });
 </script>--%>
 

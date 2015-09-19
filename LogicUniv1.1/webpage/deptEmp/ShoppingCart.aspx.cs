@@ -44,6 +44,7 @@ namespace LogicUniv1._1.webpage.deptEmp
                 GridView1.DataBind();
                 }
                 catch(Exception ex){
+
                     Response.Redirect("EmpHome.aspx");
                 }
 

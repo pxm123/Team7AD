@@ -47,6 +47,7 @@ namespace LogicUniv1._1.webpage.DeptHead
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
             User u = (User)Session["UserEntity"];
+            
             string collectionP = GridView1.SelectedRow.Cells[0].Text.Trim();
             string deptid = u.DepartmentId;
             mcpc.changeCollectionPoint(u, collectionP);

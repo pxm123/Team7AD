@@ -315,6 +315,13 @@
                 document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
             });
 </script>
+        <script>
+            $(function () {
+                $("#Button1").on("click", function () {
 
+                    document.getElementById("Button1").setAttribute("value", "Please Wait");
+                });
+            });
+    </script>
 </body>
     </html>
