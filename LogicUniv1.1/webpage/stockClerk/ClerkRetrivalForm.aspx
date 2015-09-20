@@ -232,7 +232,7 @@
      <script>
          $(function () {
              console.log(window.innerHeight);
-             var height = $("#prelayer").height() + 500;
+             var height = $("#prelayer").height() + 1000;
              console.log(height);
              document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
              document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");

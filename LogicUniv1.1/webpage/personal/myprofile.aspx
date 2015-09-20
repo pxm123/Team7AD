@@ -42,6 +42,9 @@
         .auto-style1 {
             text-align: right;
         }
+        .auto-style2 {
+            width: 87px;
+        }
     </style>
 
 
@@ -216,83 +219,26 @@
                                 <tr>
                                     <td class="auto-style1">
                                         <div class="text-justify">
-                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="userId" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
-                                                <Columns>
-                                                    <asp:BoundField DataField="userId" HeaderText="userId" ReadOnly="True" SortExpression="userId" />
-                                                    <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                                                    <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
-                                                    <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
-                                                    <asp:BoundField DataField="phoneNo" HeaderText="phoneNo" SortExpression="phoneNo" />
-                                                    <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
-                                                    <asp:BoundField DataField="roleId" HeaderText="roleId" SortExpression="roleId" />
-                                                    <asp:BoundField DataField="departmentId" HeaderText="departmentId" SortExpression="departmentId" />
-                                                    <asp:BoundField DataField="messageid" HeaderText="messageid" SortExpression="messageid" />
-                                                </Columns>
-                                                <EmptyDataTemplate>
-                                                    <table class="table-products">
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                    </table>
-                                                </EmptyDataTemplate>
-                                            </asp:GridView>
-                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString1 %>" DeleteCommand="DELETE FROM [users] WHERE [userId] = @userId" InsertCommand="INSERT INTO [users] ([userId], [name], [password], [email], [phoneNo], [address], [roleId], [departmentId], [messageid]) VALUES (@userId, @name, @password, @email, @phoneNo, @address, @roleId, @departmentId, @messageid)" ProviderName="<%$ ConnectionStrings:LogicUnivSystemConnectionString1.ProviderName %>" SelectCommand="SELECT [userId], [name], [password], [email], [phoneNo], [address], [roleId], [departmentId], [messageid] FROM [users]" UpdateCommand="UPDATE [users] SET [name] = @name, [password] = @password, [email] = @email, [phoneNo] = @phoneNo, [address] = @address, [roleId] = @roleId, [departmentId] = @departmentId, [messageid] = @messageid WHERE [userId] = @userId">
-                                                <DeleteParameters>
-                                                    <asp:Parameter Name="userId" Type="String" />
-                                                </DeleteParameters>
-                                                <InsertParameters>
-                                                    <asp:Parameter Name="userId" Type="String" />
-                                                    <asp:Parameter Name="name" Type="String" />
-                                                    <asp:Parameter Name="password" Type="String" />
-                                                    <asp:Parameter Name="email" Type="String" />
-                                                    <asp:Parameter Name="phoneNo" Type="String" />
-                                                    <asp:Parameter Name="address" Type="String" />
-                                                    <asp:Parameter Name="roleId" Type="Int32" />
-                                                    <asp:Parameter Name="departmentId" Type="String" />
-                                                    <asp:Parameter Name="messageid" Type="Int32" />
-                                                </InsertParameters>
-                                                <UpdateParameters>
-                                                    <asp:Parameter Name="name" Type="String" />
-                                                    <asp:Parameter Name="password" Type="String" />
-                                                    <asp:Parameter Name="email" Type="String" />
-                                                    <asp:Parameter Name="phoneNo" Type="String" />
-                                                    <asp:Parameter Name="address" Type="String" />
-                                                    <asp:Parameter Name="roleId" Type="Int32" />
-                                                    <asp:Parameter Name="departmentId" Type="String" />
-                                                    <asp:Parameter Name="messageid" Type="Int32" />
-                                                    <asp:Parameter Name="userId" Type="String" />
-                                                </UpdateParameters>
-                                            </asp:SqlDataSource>
-                                        </div>
-                                        <div class="auto-style1">
+                                            <table class="table-products">
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td class="auto-style2">
+                                                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="userId" DataSourceID="SqlDataSource1" DefaultMode="Edit" Height="50px" Width="125px">
+                                                            <Fields>
+                                                                <asp:BoundField DataField="userId" HeaderText="userId" ReadOnly="True" SortExpression="userId" />
+                                                                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                                                                <asp:BoundField DataField="phoneNo" HeaderText="phoneNo" SortExpression="phoneNo" />
+                                                                <asp:BoundField DataField="deptName" HeaderText="deptName" SortExpression="deptName" />
+                                                                <asp:BoundField DataField="roleName" HeaderText="roleName" SortExpression="roleName" />
+                                                                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                                                            </Fields>
+                                                        </asp:DetailsView>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT users.userId, users.name, users.phoneNo, department.deptName, role.roleName, users.email FROM users INNER JOIN role ON users.roleId = role.roleId INNER JOIN department ON users.departmentId = department.departmentId"></asp:SqlDataSource>
                                             <br />
-                                            <asp:Label ID="flag" runat="server" ForeColor="Red"></asp:Label>
-
                                         </div>
                                     </td>
                                 </tr>

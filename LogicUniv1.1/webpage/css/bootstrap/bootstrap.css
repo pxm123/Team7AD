@@ -1286,6 +1286,7 @@ pre code {
 table {
   max-width: 100%;
   background-color: transparent;
+    text-align: left;
 }
 th {
   text-align: left;
