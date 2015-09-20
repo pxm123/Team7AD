@@ -223,21 +223,29 @@
                                                 <tr>
                                                     <td>&nbsp;</td>
                                                     <td class="auto-style2">
-                                                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="userId" DataSourceID="SqlDataSource1" DefaultMode="Edit" Height="50px" Width="125px">
+                                                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" CellPadding="4" CssClass="table table-bordered table-condensed" DataKeyNames="userId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="125px" Width="405px">
+                                                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                                            <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                                                            <EditRowStyle BackColor="#999999" />
+                                                            <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                                                             <Fields>
                                                                 <asp:BoundField DataField="userId" HeaderText="userId" ReadOnly="True" SortExpression="userId" />
                                                                 <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                                                                <asp:BoundField DataField="phoneNo" HeaderText="phoneNo" SortExpression="phoneNo" />
-                                                                <asp:BoundField DataField="deptName" HeaderText="deptName" SortExpression="deptName" />
-                                                                <asp:BoundField DataField="roleName" HeaderText="roleName" SortExpression="roleName" />
+                                                                <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
                                                                 <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                                                                <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+                                                                <asp:BoundField DataField="phoneNo" HeaderText="phoneNo" SortExpression="phoneNo" />
                                                             </Fields>
+                                                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                         </asp:DetailsView>
+                                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT [userId], [name], [password], [email], [address], [phoneNo] FROM [users]"></asp:SqlDataSource>
                                                     </td>
                                                     <td>&nbsp;</td>
                                                 </tr>
                                             </table>
-                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT users.userId, users.name, users.phoneNo, department.deptName, role.roleName, users.email FROM users INNER JOIN role ON users.roleId = role.roleId INNER JOIN department ON users.departmentId = department.departmentId"></asp:SqlDataSource>
                                             <br />
                                         </div>
                                     </td>
