@@ -250,18 +250,18 @@
                     &nbsp;</p>
                 <p>
                     Category：
-                    <asp:DropDownList ID="dropdownlist_category" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" OnSelectedIndexChanged="dropdownlist_category_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    <asp:DropDownList ID="dropdownlist_category" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" OnSelectedIndexChanged="dropdownlist_category_SelectedIndexChanged" Width="25%" AutoPostBack="True"></asp:DropDownList>
                 </p>
                 <p>
                     &nbsp;ItemName:
                     <asp:DropDownList ID="dropdownlist_item" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" Width="25%"></asp:DropDownList>
                 </p>
                 <p>
-                    Amount：<asp:TextBox ID="txt_Jn" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
+                    Amount：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txt_Jn" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
                 <p>
                     Unit：<asp:Label ID="lbl_unit" runat="server" Text="(The unit of measure)" Width="25%"></asp:Label></p>
                 <p>
-                    Reason：
+                    Reason：&nbsp;&nbsp;&nbsp;
                     <asp:DropDownList ID="droplist_reason" CssClass="btn btn-default btn-sm dropdown-toggle" runat="server" Width="25%">
                         <asp:ListItem>Damage</asp:ListItem>
                         <asp:ListItem>Lost</asp:ListItem>
@@ -269,7 +269,7 @@
                     </asp:DropDownList>
                 </p>
                   <p>
-                    Remark：<asp:TextBox ID="textbox_remark" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
+                      Remark：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="textbox_remark" runat="server" CssClass="TextBox" Width="25%"></asp:TextBox></p>
                 <p>
                     <%--<asp:Button ID="Btn_edit" runat="server" Text="Edit" OnClick="Btn_edit_Click" CssClass="btn btn-info btn-sm" />--%>
                     <asp:Button ID="Btn_Add" runat="server" OnClick="Btn_Add_Click" Text="Add to row" CssClass="btn btn-info btn-sm"/>                    
