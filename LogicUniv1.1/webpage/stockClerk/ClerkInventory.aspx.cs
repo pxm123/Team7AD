@@ -32,12 +32,13 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void btn_checkLowInventory_Click(object sender, EventArgs e)
         {
-            btn_checkLowInventory.Enabled = false;
-            btn_reportDiscrepancy.Visible = false;
-            btn_reorder.Visible = true;
-            Object o = viewInventoryController.getLowBalanceData();
-            GridView1.DataSource = o;
-            GridView1.DataBind();
+            //btn_checkLowInventory.Enabled = false;
+            //btn_reportDiscrepancy.Visible = false;
+            //btn_reorder.Visible = true;
+            //Object o = viewInventoryController.getLowBalanceData();
+            //GridView1.DataSource = o;
+            //GridView1.DataBind();
+            Response.Redirect("CheckLowBalanceInventory.aspx");
         }
 
 
@@ -52,10 +53,6 @@ namespace LogicUniv1._1.webpage.stockClerk
             GridView1.DataBind();
         }
 
-        protected void btn_reorder_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Reorder.aspx");
-        }
 
        
 

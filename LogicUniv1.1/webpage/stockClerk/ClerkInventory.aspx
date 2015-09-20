@@ -186,7 +186,7 @@
                 &nbsp
                 <asp:Button ID="btn_checkLowInventory" CssClass="btn btn-sm btn-default" runat="server" Text="Low Balance Item" OnClick="btn_checkLowInventory_Click" />
                 &nbsp
-                <asp:Button ID="btn_reorder" CssClass="btn btn-sm btn-info" runat="server" Visible="false" Text="Reoder" OnClick="btn_reorder_Click" />
+           
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
