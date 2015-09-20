@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClerkInventory.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.ClerkHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckLowBalanceInventory.aspx.cs" Inherits="LogicUniv1._1.webpage.stockClerk.CheckLowBalanceInventory" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	
-	<title>Logic Unviersity Stationery Inventory System</title>
+    <title>Logic Unviersity Stationery Inventory System</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
@@ -40,7 +39,7 @@
     <script src="../js/theme.js"></script>
 </head>
 <body>
-    <header class="navbar navbar-inverse" role="banner">
+<header class="navbar navbar-inverse" role="banner">
         <ul class="nav navbar-nav pull-right hidden-xs">
             <li class="hidden-xs hidden-sm">
                 <input class="search" type="text" />
@@ -182,11 +181,9 @@
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
                     
 			<div class="tm-right-inner-container">
-                <asp:Button ID="btn_reportDiscrepancy" CssClass="btn btn-sm btn-default" runat="server" Text="Report Discrepancy" OnClick="btn_reportDiscrepancy_Click" />
+                <asp:Button ID="btn_checkLowInventory" Enabled="false" CssClass="btn btn-sm btn-default" runat="server" Text="Low Balance Item" />
                 &nbsp
-                <asp:Button ID="btn_checkLowInventory" CssClass="btn btn-sm btn-default" runat="server" Text="Low Balance Item" OnClick="btn_checkLowInventory_Click" />
-                &nbsp
-           
+                <asp:Button ID="btn_reorder" CssClass="btn btn-sm btn-info" runat="server" Text="Reoder" OnClick="btn_reorder_Click" />
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
@@ -221,6 +218,5 @@
                 document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
             });
 </script>
-
 </body>
-    </html>
+</html>

@@ -371,6 +371,7 @@ namespace ClassLibraryBL.EntityFacade
                        where r.status != "Completed"
                        where r.status != "Reject"
                        where r.requestDate >= monday.Date
+                       orderby r.requestDate descending
                        select new { r.requisitionId, r.requestDate, d.deptName, r.status };
             Object o = data.ToList();
             return o;

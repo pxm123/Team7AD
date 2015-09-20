@@ -452,6 +452,7 @@
     <Content Include="webpage\personal\myprofile.aspx" />
     <Content Include="webpage\Security.aspx" />
     <Content Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx" />
+    <Content Include="webpage\stockClerk\CheckLowBalanceInventory.aspx" />
     <Content Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx" />
     <Content Include="webpage\stockClerk\ClerkInventory.aspx" />
     <Content Include="webpage\stockClerk\ClerkMainSupplierPengxiaomeng.aspx" />
@@ -773,6 +774,13 @@
     </Compile>
     <Compile Include="webpage\stockClerk\CheckCurrentDisbursementList.aspx.designer.cs">
       <DependentUpon>CheckCurrentDisbursementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webpage\stockClerk\CheckLowBalanceInventory.aspx.cs">
+      <DependentUpon>CheckLowBalanceInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webpage\stockClerk\CheckLowBalanceInventory.aspx.designer.cs">
+      <DependentUpon>CheckLowBalanceInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="webpage\stockClerk\ClerkHistoryLogPengxiaomeng.aspx.cs">
       <DependentUpon>ClerkHistoryLogPengxiaomeng.aspx</DependentUpon>
