@@ -162,11 +162,10 @@
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
             <div class="tm-right-inner-container" id="prelayer">
                 <div>
-            <asp:DropDownList ID="viewby" runat="server" OnSelectedIndexChanged="viewby_SelectedIndexChanged" ValidateRequestMode="Enabled" AutoPostBack="True" Height="26px" Width="112px" style="margin-left:auto">
+            <asp:DropDownList ID="viewby" runat="server" OnSelectedIndexChanged="viewby_SelectedIndexChanged" ValidateRequestMode="Enabled" AutoPostBack="True" Height="26px" Width="130px" style="margin-left:auto">
                 <asp:ListItem>View By Department</asp:ListItem>
                 <asp:ListItem Selected="True">View By Item</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:1%" OnClick="HistoryLog1_Click" CssClass="btn btn-info" Height="30px" Width="158px" />            
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
             <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" CssClass="btn btn-info" Height="30px" Width="164px" />
             <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="299px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">

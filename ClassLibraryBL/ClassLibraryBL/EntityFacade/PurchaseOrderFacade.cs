@@ -308,13 +308,16 @@ namespace ClassLibraryBL.EntityFacade
         }
         public void additems(int itemcode, int supplierid,int purchaseid,int qt)
         {
-            purchase_item pitem = new purchase_item();
-            pitem.purchaseId = purchaseid;
-            pitem.itemId = itemcode;
-            pitem.requestQty = qt;
-            pitem.supplierid = supplierid;
-            ctx.purchase_item.Add(pitem);
-            ctx.SaveChanges();
+            if (qt != null)
+            {
+                purchase_item pitem = new purchase_item();
+                pitem.purchaseId = purchaseid;
+                pitem.itemId = itemcode;
+                pitem.requestQty = qt;
+                pitem.supplierid = supplierid;
+                ctx.purchase_item.Add(pitem);
+                ctx.SaveChanges();
+            }
         }
         public List<string> showitemsbysupplier(int supplierid)
         {

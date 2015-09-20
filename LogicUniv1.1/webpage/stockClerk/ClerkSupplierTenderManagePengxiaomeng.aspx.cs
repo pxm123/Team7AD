@@ -63,13 +63,21 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void Confirm_Click(object sender, EventArgs e)
         {
-            supplier s = new supplier();
-            s = (supplier)Session["supplier"];
-            int k = Convert.ToInt32(GridView1.SelectedRow.Cells[1].Text);
-            int i = Convert.ToInt32(NewPrice.Text);
-            clerk.editprice(k, s.supplierId, i);
-            GridView1.DataSource = clerk.showitems(s.supplierId);
-            GridView1.DataBind();
+            try
+            {
+                supplier s = new supplier();
+                s = (supplier)Session["supplier"];
+                int k = Convert.ToInt32(GridView1.SelectedRow.Cells[1].Text);
+                int i = Convert.ToInt32(NewPrice.Text);
+                clerk.editprice(k, s.supplierId, i);
+                GridView1.DataSource = clerk.showitems(s.supplierId);
+                GridView1.DataBind();
+                Label5.Text = "Update Successful";
+            }
+            catch
+            {
+                Label5.Text = "Update Failed!";
+            }
         }
         protected void back_Click(object sender, EventArgs e)  
      {  

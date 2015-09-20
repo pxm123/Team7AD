@@ -31,15 +31,6 @@ namespace LogicUniv1._1.webpage.stockClerk {
         protected global::System.Web.UI.WebControls.DropDownList viewby;
         
         /// <summary>
-        /// HistoryLog1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button HistoryLog1;
-        
-        /// <summary>
         /// CurrentWeek control.
         /// </summary>
         /// <remarks>

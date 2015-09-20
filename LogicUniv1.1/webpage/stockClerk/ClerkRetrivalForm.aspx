@@ -95,7 +95,6 @@
             </asp:DropDownList>
             <asp:Button ID="HistoryLog1" runat="server" Text="History Log" Style="margin-left:0%" OnClick="HistoryLog_Click" CssClass="btn btn-info" Height="30px" Width="105px" />            
             &nbsp;            
-            <asp:Button ID="CurrentWeek" runat="server" Text="Current Week" OnClick="CurrentWeek_Click" CssClass="btn btn-info" Height="32px" Width="119px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:RadioButtonList ID="Department" runat="server" Height="16px" Width="497px" AutoPostBack="True" OnSelectedIndexChanged="Department_SelectedIndexChanged1" Visible="False">
                 <asp:ListItem>COMM</asp:ListItem>

@@ -96,8 +96,9 @@
         <br />
         <asp:Label ID="Label6" runat="server" Text="SupplierID:"></asp:Label>  
         <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>  
-        <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="346px" Width="723px" OnRowCommand="GridView1_RowCommand" CssClass="table table-striped table-bordered table-condensed">
+        <br />     
+        <div id="Print">
+         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="723px" OnRowCommand="GridView1_RowCommand" CssClass="table table-striped table-bordered table-condensed">
             <Columns>
                 <asp:BoundField DataField="Itemcode" HeaderText="Itemcode" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
@@ -117,17 +118,20 @@
                 <ControlStyle CssClass="btn btn-danger" />
                 </asp:ButtonField>
             </Columns>
+             <EditRowStyle Height="35px" />
             <EmptyDataTemplate>
                 NO&nbsp;&nbsp; ITEM&nbsp;&nbsp;&nbsp; FOUND!
             </EmptyDataTemplate>
         </asp:GridView>
-    
+     </div>
     </div>
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="Send" runat="server" style="margin-left: 509px" Text="Send Email to Supplier" Width="178px" CssClass="btn btn-info" OnClick="Send_Click" />
+            <asp:Button ID="Send" runat="server" style="margin-left: 520px" Text="Send Email to Supplier" Width="178px" CssClass="btn btn-info" OnClick="Send_Click" />
+            <asp:Label ID="Label8" runat="server" ForeColor="Red"></asp:Label>
             <asp:Button ID="Add" runat="server" Height="35px" style="margin-left: 15px" Text="Add Item" Width="135px" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" CssClass="btn btn-info" />
+            <asp:Label ID="s" Text="" runat="server"></asp:Label>
         </p>
            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" Width="96px" CssClass="btn btn-info" />  
            <asp:Button ID="Button1" runat="server" Text="Print" OnClientClick="PrintGridView()" Width="98px" CssClass="btn btn-info" OnClick="Button1_Click" />  
@@ -147,15 +151,15 @@
               </asp:DropDownList>
           </div>
           <div class="form-group">
-             <label for="recipient-name" class="control-label">Item Number:</label><asp:TextBox ID="itemnumber" runat="server" Width="96px"></asp:TextBox>
-       &nbsp;</div>
+             <label for="recipient-name" class="control-label">Item Number:</label><asp:TextBox ID="itemnumber" runat="server" Width="96px"></asp:TextBox>&nbsp;</div>
        </form>
       </div>
       <div class="modal-footer">
      <asp:Button ID="Close" class="btn btn-default" data-dismiss="modal" runat="server" Text="Close" />
      <asp:Button ID="Confirm" class="btn btn-primary" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="Confirm_Click" />
       </div>   
-  </div>      
+  </div>  
+      </div>    
 </div>
          </div> 
             </div>    

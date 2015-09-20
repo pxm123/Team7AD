@@ -94,6 +94,15 @@ namespace LogicUniv1._1.webpage.stockClerk {
         protected global::System.Web.UI.WebControls.Button Send;
         
         /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
         /// Add control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace LogicUniv1._1.webpage.stockClerk {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Add;
+        
+        /// <summary>
+        /// s control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label s;
         
         /// <summary>
         /// Button2 control.

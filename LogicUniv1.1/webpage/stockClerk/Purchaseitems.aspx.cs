@@ -79,12 +79,19 @@ namespace LogicUniv1._1.webpage.stockClerk
 
         protected void Confirm_Click(object sender, EventArgs e)
         {
-            purchase s = (purchase)Session["purchaseitem"];
-            string description = Itemchoose.SelectedValue;
-            int itemcode = pl.finditemcode(description, s.supplierId);
-            int qt = Convert.ToInt32(itemnumber.Text);
-            pl.additems(itemcode, s.supplierId, s.purchaserId, qt);
-            Response.Redirect("Purchaseitems.aspx");
+            try
+            {
+                purchase s = (purchase)Session["purchaseitem"];
+                string description = Itemchoose.SelectedValue;
+                int itemcode = pl.finditemcode(description, s.supplierId);
+                int qt = Convert.ToInt32(itemnumber.Text);
+                pl.additems(itemcode, s.supplierId, s.purchaserId, qt);
+                Response.Redirect("Purchaseitems.aspx");
+            }
+            catch
+            {
+                s.Text = "Number Validation not Pass!";
+            }
         }
          protected void Button2_Click(object sender, EventArgs e)  
         {  
@@ -151,7 +158,7 @@ namespace LogicUniv1._1.webpage.stockClerk
             client.Send(messge);
             messge.Attachments.Dispose();
 
-
+            Label8.Text = "Send Successful!";
             }
                 
         }  
