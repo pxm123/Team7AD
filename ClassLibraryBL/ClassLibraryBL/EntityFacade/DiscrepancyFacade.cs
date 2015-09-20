@@ -54,8 +54,20 @@ namespace ClassLibraryBL.EntityFacade
                 String type = Data.Rows[i].ItemArray[4].ToString();
                 String remark = Data.Rows[i].ItemArray[5].ToString();
                 DateTime reportdate = DateTime.Now;
-                addToDiscrepancyTable(description, reportdate, remark, u.UserId, 50, amount, type);
+                int totalprice = calculateSum(description, amount);
+                addToDiscrepancyTable(description, reportdate, remark, u.UserId, totalprice, amount, type);
             }
+        }
+
+        public int calculateSum(String description, int amout)
+        {
+            var data = from i in lg.items
+                       join i_s in lg.item_supplier on i.itemId equals i_s.itemId
+                       where i.description == description
+                       select i_s.price;
+            int price = Convert.ToInt32(data.FirstOrDefault());
+            int totalprice = amout * price;
+            return totalprice;
         }
 
         protected void addToDiscrepancyTable(String description, DateTime reportdate, String remark, String userId, int totalprice, int amount, String type)
@@ -66,7 +78,7 @@ namespace ClassLibraryBL.EntityFacade
             addDiscrepancy.Remark = remark;
             addDiscrepancy.userId = userId;
             addDiscrepancy.totalPrice = totalprice;
-
+            addDiscrepancy.status = "Pending";
             lg.discrepancies.Add(addDiscrepancy);
             lg.SaveChanges();
 
