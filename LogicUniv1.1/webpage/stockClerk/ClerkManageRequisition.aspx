@@ -5,7 +5,7 @@
 <html>
 <head>
 	
-	<title>Logic Unviersity Stationery Inventory System</title>
+	<title>Logic Unviersity Stationery Inventory System</title>     
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
@@ -42,10 +42,10 @@
 <body>
     <header class="navbar navbar-inverse" role="banner">
         <ul class="nav navbar-nav pull-right hidden-xs">
-            <li class="hidden-xs hidden-sm">
-                <input class="search" type="text" />
-            </li>
-            <li class="notification-dropdown hidden-xs hidden-sm">
+    <%--            <li class="hidden-xs hidden-sm">
+                    <input class="search" type="text" />
+                </li>--%>
+            <<%--li class="notification-dropdown hidden-xs hidden-sm">
                 <a href="#" class="trigger">
                     <i class="icon-warning-sign"></i>
                     <span class="count">8</span>
@@ -85,8 +85,8 @@
                         </div>
                     </div>
                 </div>
-            </li>
-            <li class="notification-dropdown hidden-xs hidden-sm">
+            </li>--%>
+            <%--<li class="notification-dropdown hidden-xs hidden-sm">
                 <a href="#" class="trigger">
                     <i class="icon-envelope"></i>
                 </a>
@@ -128,25 +128,29 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li>--%>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
-                    你的账号
+                    Your Account
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">个人信息</a></li>
-                    <li><a href="#">账号设置</a></li>
-                    <li><a href="#">账单</a></li>
-                    <li><a href="#">导出数据</a></li>
-                    <li><a href="#">发送反馈</a></li>
+                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="personal-info.html">Setting</a></li>
                 </ul>
-            </li>
-            <li class="settings hidden-xs hidden-sm">
-                <a href="personal-info.html" role="button">
-                    <i class="icon-cog"></i>
-                </a>
-            </li>
+                                                                                                    <%--<ul class="dropdown-menu">
+                                                                                                        <li><a href="personal-info.html">个人信息</a></li>
+                                                                                                        <li><a href="#">账号设置</a></li>
+                                                                                                        <li><a href="#">账单</a></li>
+                                                                                                        <li><a href="#">导出数据</a></li>
+                                                                                                        <li><a href="#">发送反馈</a></li>
+                                                                                                    </ul>--%>
+                                                                                                </li>
+                                                                                    <%--            <li class="settings hidden-xs hidden-sm">
+                                                                                                    <a href="personal-info.html" role="button">
+                                                                                                        <i class="icon-cog"></i>
+                                                                                                    </a>
+                                                                                                </li>   --%>
             <li class="settings hidden-xs hidden-sm">
 <a href="../LogoutPage.aspx" role="button">
                     <i class="icon-share-alt"></i>
