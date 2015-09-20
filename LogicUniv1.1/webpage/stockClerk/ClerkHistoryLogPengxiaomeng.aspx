@@ -160,7 +160,7 @@
 <div class="col-lg-9 col-md-9 col-sm-9  white-bg right-container" id="rightlayer">
 
 			<h1 class="logo-right hidden-xs margin-bottom-60">University</h1>
-            <div class="tm-right-inner-container">
+            <div class="tm-right-inner-container" id="prelayer">
                 <div>
             <asp:DropDownList ID="viewby" runat="server" OnSelectedIndexChanged="viewby_SelectedIndexChanged" ValidateRequestMode="Enabled" AutoPostBack="True" Height="26px" Width="112px" style="margin-left:auto">
                 <asp:ListItem>View By Department</asp:ListItem>
@@ -209,15 +209,16 @@
     </div>	
 		<!-- right section -->
   </form>
-<script>
-        $(function () {
-            console.log(window.innerHeight);
-            var height = (window.innerHeight);
-            console.log(height);
-            document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
-            document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
-        });
-</script>
+     <script>
+         $(function () {
+             console.log(window.innerHeight);
+             var height = $("#prelayer").height() + 500;
+             console.log(height);
+             document.getElementById("leftlayer").setAttribute("style", "height:" + height + "px");
+             document.getElementById("rightlayer").setAttribute("style", "height:" + height + "px");
+         });
+    </script>
+
   <script>
       function PrintGridView() {
           // 打开一个新网页

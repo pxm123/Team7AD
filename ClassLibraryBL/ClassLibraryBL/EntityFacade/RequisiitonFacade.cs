@@ -599,7 +599,7 @@ namespace ClassLibraryBL.EntityFacade
         {
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
-                    group b by new { b.itemId, b.requestQty } into g
+                    group b by new { b.itemId} into g
                     join c in luse.items on g.Key.itemId equals c.itemId 
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
@@ -623,7 +623,7 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.requestDate < dt2) && (a.requestDate > dt1)
-                    group b by new { b.itemId, b.requestQty } into g 
+                    group b by new { b.itemId} into g 
                     join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
@@ -644,7 +644,7 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.departmentId == ts)
-                    group b by new { b.itemId, b.requestQty } into g 
+                    group b by new { b.itemId} into g 
                     join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
@@ -670,7 +670,7 @@ namespace ClassLibraryBL.EntityFacade
             var n = from a in luse.requisitions
                     join b in luse.requsiiton_item on a.requisitionId equals b.requisitionId
                     where (a.departmentId == ts) && (a.requestDate < dt2) && (a.requestDate > dt1)
-                    group b by new { b.itemId, b.requestQty } into g
+                    group b by new { b.itemId} into g
                     join c in luse.items on g.Key.itemId equals c.itemId
                     join d in luse.categories on c.categoryId equals d.categoryId
                     select new RequisitionMix
