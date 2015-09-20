@@ -135,7 +135,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">Personal Info</a></li>
+                    <li><a href="../personal/myprofile.aspx">Personal Info</a></li>
                     <li><a href="personal-info.html">Setting</a></li>
                 </ul>
                                                                                                     <%--<ul class="dropdown-menu">

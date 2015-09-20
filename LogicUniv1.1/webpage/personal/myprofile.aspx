@@ -42,8 +42,30 @@
         .auto-style1 {
             text-align: right;
         }
-        .auto-style2 {
-            width: 87px;
+        .auto-style4 {
+            width: 63px;
+        }
+        .auto-style5 {
+            width: 100px;
+            height: 22px;
+        }
+        .auto-style6 {
+            height: 22px;
+            width: 413px;
+        }
+        .auto-style7 {
+            width: 413px;
+        }
+        .auto-style8 {
+            width: 610px;
+        }
+        .auto-style10 {
+            width: 100px;
+            height: 31px;
+        }
+        .auto-style11 {
+            width: 413px;
+            height: 31px;
         }
     </style>
 
@@ -213,7 +235,7 @@
             
           
 			<div class="tm-right-inner-container" style="padding-left:80px">
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                
                         <ContentTemplate>
                             <table class="table-products">
                                 <tr>
@@ -221,40 +243,87 @@
                                         <div class="text-justify">
                                             <table class="table-products">
                                                 <tr>
-                                                    <td>&nbsp;</td>
-                                                    <td class="auto-style2">
-                                                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" CellPadding="4" CssClass="table table-bordered table-condensed" DataKeyNames="userId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="125px" Width="405px">
-                                                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                                            <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                                                            <EditRowStyle BackColor="#999999" />
-                                                            <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
-                                                            <Fields>
-                                                                <asp:BoundField DataField="userId" HeaderText="userId" ReadOnly="True" SortExpression="userId" />
-                                                                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                                                                <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
-                                                                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
-                                                                <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
-                                                                <asp:BoundField DataField="phoneNo" HeaderText="phoneNo" SortExpression="phoneNo" />
-                                                            </Fields>
-                                                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                                        </asp:DetailsView>
-                                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUnivSystemConnectionString %>" SelectCommand="SELECT [userId], [name], [password], [email], [address], [phoneNo] FROM [users]"></asp:SqlDataSource>
+                                                    <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <br />
+                                                        <br />
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <br />
+                                                        <table class="table-products">
+                                                            <tr>
+                                                                <td class="auto-style10">
+                                                                    <asp:Label ID="Label1" runat="server" Text="Employee Id"></asp:Label>
+                                                                </td>
+                                                                <td class="auto-style11">
+                                                                    <asp:TextBox ID="TextBox7" runat="server" Enabled="False" Width="135px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="auto-style5">
+                                                                    <asp:Label ID="Label7" runat="server" Text="Name"></asp:Label>
+                                                                </td>
+                                                                <td class="auto-style6">
+                                                                    <asp:TextBox ID="TextBox8" runat="server" Width="135px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="auto-style4">
+                                                                    <asp:Label ID="Label8" runat="server" Text="Password"></asp:Label>
+                                                                </td>
+                                                                <td class="auto-style7">
+                                                                    <asp:TextBox ID="TextBox3" runat="server" Width="135px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="auto-style4">
+                                                                    <asp:Label ID="Label4" runat="server" Text="Email"></asp:Label>
+                                                                </td>
+                                                                <td class="auto-style7">
+                                                                    <asp:TextBox ID="TextBox4" runat="server" Width="135px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="auto-style4">
+                                                                    <asp:Label ID="Label5" runat="server" Text="Address"></asp:Label>
+                                                                </td>
+                                                                <td class="auto-style7">
+                                                                    <asp:TextBox ID="TextBox5" runat="server" Width="135px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="auto-style4">
+                                                                    <asp:Label ID="Label6" runat="server" Text="Phone Number"></asp:Label>
+                                                                </td>
+                                                                <td class="auto-style7">
+                                                                    <asp:TextBox ID="TextBox6" runat="server" Width="135px"></asp:TextBox>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <br />
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <br />
+                                                        <br />
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <asp:Button ID="Submit" runat="server" Height="27px" OnClick="Submit_Click" Text="Submit" Width="88px" />
+                                                        <asp:Label ID="Label9" runat="server"></asp:Label>
+                                                        <br />
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <br />
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <br />
+                                                        <br />
+                                                        <br />
                                                     </td>
                                                     <td>&nbsp;</td>
                                                 </tr>
                                             </table>
+                                          
                                             <br />
                                         </div>
                                     </td>
                                 </tr>
                             </table>
-                            <asp:ScriptManager ID="ScriptManager1" runat="server">
-                            </asp:ScriptManager>
                         </ContentTemplate>
-                    </asp:UpdatePanel>
+                 
 
              </div>
           
@@ -262,8 +331,7 @@
 
 
 				<footer>
-					<p class="col-lg-3 col-md-3  ">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 </p>
-					<p class="col-lg-9 col-md-9  templatemo-social">
+					<p class="col-lg-3 col-md-3  ">Copyright &copy; 2015 Logic University designed by NUS ISS SA 40 Team 7 "col-lg-9 col-md-9  templatemo-social">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
 						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
 						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
